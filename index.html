@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LOCA BRANDS — Independent Brand Building Studio</title>
+<meta name="description" content="LOCA BRANDS is a senior-led brand building studio. We build the founder, the brand and the demand engine — helping consumer brands build, launch, evolve and scale as one integrated system.">
+<meta name="theme-color" content="#f6f4f0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2212%22 fill=%22%23ff1010%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700;9..40,800&family=JetBrains+Mono:wght@500&family=Manrope:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --red: #540909;
+    --black: #090909;
+    --paper: #f6f4f0;
+    --muted: #6f6c68;
+    --burgundy: #4a0d12;
+    --yellow: #f8e08e;
+    --beige: #e9e2d6;
+    --line: rgba(9, 9, 9, 0.12);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --gutter: clamp(1.25rem, 5vw, 5.5rem);
+    --bg1: #fffaf0; --bg2: #fcefc2; --bg3: #f6dc8a;   /* world background, driven by scroll */
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; width: 100%; overflow-x: clip; }
+  @supports not (overflow: clip) { body { overflow-x: hidden; } }
+  body { font-family: "Manrope", sans-serif; color: var(--black); background: var(--paper); -webkit-font-smoothing: antialiased; }
+  body.menu-open { overflow: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 4px; border-radius: 4px; }
+  .serif { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; letter-spacing: -0.02em; text-transform: none; }
+  .red { color: var(--red); }
+  .label { margin: 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
+  .label::before { content: ""; display: inline-block; width: 0.45rem; height: 0.45rem; margin-right: 0.7rem; border-radius: 50%; background: var(--red); vertical-align: 0.08em; }
+  .display { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.045em; line-height: 0.9; }
+  .copy { margin: 0; font-size: clamp(0.98rem, 1.15vw, 1.1rem); line-height: 1.7; color: var(--muted); }
+
+  /* ---------- Fixed world: background (z -1), grain, WebGL flower (z 0) ---------- */
+  .world-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 62% 42%, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%); }
+  .grain { position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  #gl { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+
+  /* ---------- Custom cursor (desktop only) ---------- */
+  .cursor, .cursor-ring { position: fixed; left: 0; top: 0; z-index: 70; pointer-events: none; border-radius: 50%; display: none; }
+  .cursor { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--red); }
+  .cursor-ring { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1px solid rgba(9,9,9,0.35); transition: width 0.35s var(--ease), height 0.35s var(--ease), margin 0.35s var(--ease), border-color 0.35s, background 0.35s; }
+  .cursor-ring.is-hover { width: 64px; height: 64px; margin: -32px 0 0 -32px; border-color: var(--red); background: rgba(255,16,16,0.06); }
+  .cursor-ring.on-dark { border-color: rgba(246,244,240,0.45); }
+  @media (hover: hover) and (pointer: fine) {
+    html.has-cursor, html.has-cursor a, html.has-cursor button { cursor: none; }
+    html.has-cursor .cursor, html.has-cursor .cursor-ring { display: block; }
+  }
+
+  /* ---------- Navigation (z 30) + mobile menu (z 50) ---------- */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.3rem var(--gutter); transition: color 0.4s, background 0.4s; }
+  .nav.is-glass { background: rgba(246,244,240,0.62); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); }
+  .nav.on-dark { color: var(--paper); background: rgba(9,9,9,0.4); }
+  .logo { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.06em; }
+  .logo span { color: var(--red); }
+  .nav-links { display: flex; gap: clamp(1.2rem, 2.6vw, 2.6rem); font-size: 0.82rem; font-weight: 600; }
+  .nav-links a, .nav-cta { position: relative; }
+  .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1.5px; background: var(--red); transform: scaleX(0); transform-origin: right; transition: transform 0.5s var(--ease); }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.2rem; border-radius: 999px; background: var(--black); color: var(--paper); font-size: 0.8rem; font-weight: 700; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--red); }
+  .arrow { display: inline-block; transition: transform 0.45s var(--ease); }
+  a:hover .arrow { transform: translate(3px, -3px); }
+  .nav-menu { display: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.6rem 0; }
+  .menu { position: fixed; inset: 0; z-index: 50; display: flex; flex-direction: column; justify-content: center; gap: 0.3rem; padding: 6rem var(--gutter) 2.5rem; background: var(--black); color: var(--paper); clip-path: inset(0 0 100% 0); visibility: hidden; transition: clip-path 0.8s cubic-bezier(0.77,0,0.18,1), visibility 0s linear 0.8s; }
+  .menu-open .menu { clip-path: inset(0); visibility: visible; transition: clip-path 0.8s cubic-bezier(0.77,0,0.18,1), visibility 0s; }
+  .menu a { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2.2rem, 10vw, 3.4rem); text-transform: uppercase; letter-spacing: -0.04em; opacity: 0; transform: translateY(1.4rem); transition: opacity 0.5s, transform 0.8s var(--ease); }
+  .menu-open .menu a { opacity: 1; transform: none; transition-delay: calc(0.3s + var(--i) * 0.07s); }
+  .menu a.menu-mail { margin-top: 2rem; font-family: "Manrope", sans-serif; font-size: 1rem; font-weight: 600; text-transform: none; letter-spacing: 0; color: rgba(246,244,240,0.7); }
+  .menu-open .nav { color: var(--paper); background: transparent; backdrop-filter: none; }
+
+  main, .footer { position: relative; z-index: 10; }
+  .pin { position: relative; width: 100%; }
+  .stage { position: sticky; top: 0; width: 100%; height: 100vh; height: 100svh; overflow: hidden; }
+  [data-fx] { will-change: transform, opacity; }
+
+  /* ---------- 01 Hero ---------- */
+  .hero { height: 230vh; }
+  .hero .stage { display: flex; align-items: center; padding: 6rem var(--gutter) 3rem; }
+  .deco { position: absolute; inset: 0; pointer-events: none; }
+  .deco svg { position: absolute; overflow: visible; }
+  .ring-a { width: min(62vw, 58rem); right: -12vw; top: 6vh; }
+  .ring-b { width: min(22vw, 20rem); left: 44vw; bottom: 8vh; }
+  .curve { width: 60vw; left: -8vw; bottom: -4vh; }
+  .fg-dot { position: absolute; border-radius: 50%; background: var(--red); }
+  .hero-copy { position: relative; max-width: 44rem; }
+  .hero h1 { margin: 1.4rem 0 1.8rem; font-size: clamp(2.9rem, 6.6vw, 6.8rem); }
+  .hero h1 .l { display: block; }
+  .hero h1 .thin { font-weight: 500; font-size: 0.62em; letter-spacing: -0.03em; }
+  .hero-sub { max-width: 30rem; font-size: clamp(1.02rem, 1.3vw, 1.22rem); line-height: 1.55; color: var(--black); font-weight: 600; }
+  .hero-note { margin-top: 1rem; max-width: 30rem; }
+  .hero-intro { opacity: 0; transform: translateY(36px); filter: blur(8px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease); transition-delay: var(--d, 0s); }
+  .is-ready .hero-intro { opacity: 1; transform: none; filter: none; }
+  .scroll-cue { position: absolute; right: var(--gutter); bottom: clamp(2rem, 7vh, 4rem); display: flex; align-items: center; gap: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; }
+  .scroll-cue svg { width: 0.9rem; height: 1.6rem; animation: bob 2.2s var(--ease) infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(7px); opacity: 1; } }
+  .bloom-meter { position: absolute; left: var(--gutter); bottom: clamp(2rem, 7vh, 4rem); display: flex; align-items: center; gap: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .bloom-meter i { position: relative; width: 6rem; height: 2px; background: var(--line); overflow: hidden; }
+  .bloom-meter i::after { content: ""; position: absolute; inset: 0; background: var(--red); transform-origin: left; transform: scaleX(var(--bloom, 0)); }
+
+  /* ---------- 02 What we do ---------- */
+  .wwd { height: 280vh; }
+  .wwd .stage { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 4vw; padding: 6rem var(--gutter) 3rem; }
+  .wwd .label { position: absolute; top: clamp(6rem, 13vh, 8rem); left: var(--gutter); }
+  .big-words { font-size: clamp(3.6rem, 12vw, 12.5rem); }
+  .big-words span { display: block; }
+  .big-words span:nth-child(2) { padding-left: 0.5em; }
+  .big-words span:nth-child(3) { padding-left: 1em; color: var(--red); }
+  .wwd-text { display: grid; gap: 1.2rem; max-width: 34rem; }
+  .statement { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.3rem, 2.1vw, 2rem); line-height: 1.25; letter-spacing: -0.02em; }
+
+  /* ---------- 03 How we work ---------- */
+  .how { height: 230vh; }
+  .how .stage { display: flex; flex-direction: column; justify-content: center; gap: clamp(2rem, 5vh, 3.5rem); padding: 6.5rem var(--gutter) 3rem; }
+  .how-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; }
+  .how h2 { font-size: clamp(3.2rem, 9vw, 9rem); }
+  .how h2 span { display: block; }
+  .way-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2vw, 2rem); }
+  .card { position: relative; padding: clamp(1.6rem, 2.6vw, 2.6rem); border-radius: 1.6rem; background: rgba(255,255,255,0.72); border: 1px solid rgba(9,9,9,0.08); box-shadow: 0 30px 70px rgba(74,13,18,0.08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: box-shadow 0.5s var(--ease), border-color 0.5s; }
+  .card:hover { border-color: rgba(255,16,16,0.35); box-shadow: 0 40px 90px rgba(74,13,18,0.14); }
+  .card-lift { transition: transform 0.5s var(--ease); }
+  .card:hover .card-lift { transform: translateY(-6px); }
+  .way-num { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 0.9rem; color: var(--red); }
+  .card h3 { margin: 1.4rem 0 1rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2.3rem); letter-spacing: -0.035em; line-height: 1.05; }
+  .card p + p { margin-top: 0.8rem; }
+
+  /* ---------- 04 Services: pinned card stack ---------- */
+  .svc { height: 620vh; }
+  .svc .stage { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4vw; align-items: center; padding: 6.5rem var(--gutter) 3rem; }
+  .svc-head h2 { margin: 1.4rem 0 1.4rem; font-size: clamp(3.2rem, 8.5vw, 8.6rem); }
+  .svc-head h2 span { display: block; }
+  .svc-count { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .svc-count b { font-size: 2.4rem; letter-spacing: -0.04em; }
+  .svc-count i { position: relative; flex: 0 0 8rem; height: 2px; background: var(--line); }
+  .svc-count i::after { content: ""; position: absolute; inset: 0; background: var(--red); transform-origin: left; transform: scaleX(var(--svc, 0)); }
+  .svc-stack { position: relative; height: min(40rem, calc(100svh - 10rem)); }
+  .svc-card { position: absolute; inset: 0; display: flex; flex-direction: column; padding: clamp(1.6rem, 2.6vw, 2.8rem); border-radius: 1.8rem; background: #fff; border: 1px solid rgba(9,9,9,0.1); box-shadow: 0 40px 90px rgba(74,13,18,0.12); transform-origin: 50% 0%; overflow: hidden; transition: border-color 0.4s; }
+  .svc-card:hover { border-color: rgba(255,16,16,0.45); }
+  .svc-card:nth-child(even) { background: #fffdf8; }
+  .svc-card::after { content: attr(data-n); position: absolute; right: 1.6rem; bottom: -1.5rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(7rem, 12vw, 11rem); letter-spacing: -0.06em; color: rgba(9,9,9,0.04); pointer-events: none; }
+  .svc-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  .svc-top b { color: var(--red); }
+  .svc-card h3 { margin: 1.4rem 0 0.8rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 4.2rem); text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.92; }
+  .svc-card > p { max-width: 30rem; font-size: 1.02rem; line-height: 1.55; color: var(--muted); }
+  .svc-card ul { list-style: none; margin: auto 0 0; padding: 1.4rem 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1.5rem; font-size: 0.92rem; font-weight: 600; }
+  .svc-card li { display: flex; gap: 0.6rem; line-height: 1.35; }
+  .svc-card li::before { content: ""; flex: 0 0 0.35rem; height: 0.35rem; margin-top: 0.45em; border-radius: 50%; background: var(--red); }
+
+  /* ---------- 05 Difference ---------- */
+  .diff { height: 260vh; }
+  .diff .stage { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4vw; align-items: center; padding: 6.5rem var(--gutter) 3rem; }
+  .diff h2 { margin: 1.4rem 0 1.4rem; font-size: clamp(2.8rem, 6.8vw, 6.8rem); }
+  .diff h2 span { display: block; }
+  .table { width: 100%; }
+  .t-head, .t-row { display: grid; grid-template-columns: 1fr 2.5rem 1.2fr; align-items: center; gap: 1rem; }
+  .t-head { padding-bottom: 1rem; border-bottom: 1px solid var(--black); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+  .t-head span:first-child { color: var(--muted); }
+  .t-row { position: relative; padding: clamp(0.8rem, 1.8vh, 1.15rem) 0; border-bottom: 1px solid var(--line); }
+  .t-old { font-size: 0.98rem; color: var(--muted); }
+  .t-arrow { color: var(--red); font-weight: 700; text-align: center; }
+  .t-new { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.02rem, 1.4vw, 1.3rem); letter-spacing: -0.02em; }
+  .t-row::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1.5px; width: 100%; background: var(--red); transform-origin: left; transform: scaleX(var(--lit, 0)); }
+
+  /* ---------- 06 Let's build ---------- */
+  .build { height: 240vh; }
+  .build .stage { display: flex; flex-direction: column; justify-content: center; padding: 6.5rem var(--gutter) 3rem; }
+  .build h2 { margin: 1.6rem 0 2rem; font-size: clamp(3.2rem, 9.6vw, 10rem); }
+  .build h2 span { display: block; }
+  .build h2 span:nth-child(2) { padding-left: 0.6em; }
+  .build h2 span:nth-child(3) { padding-left: 1.2em; color: var(--red); }
+  .build-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; max-width: 60rem; }
+  .build-foot .copy { max-width: 28rem; color: var(--black); font-weight: 500; }
+  .cta { display: inline-flex; align-items: center; gap: 0.9rem; padding: 1.25rem 2rem; border-radius: 999px; background: var(--red); color: #fff; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 20px 50px rgba(255,16,16,0.3); transition: background 0.3s, box-shadow 0.4s var(--ease); }
+  .cta:hover { background: var(--black); box-shadow: 0 20px 50px rgba(9,9,9,0.25); }
+
+  /* ---------- Bridge: cream → warm red → dark burgundy → black ---------- */
+  .bridge { position: relative; z-index: 10; height: 90vh; background: linear-gradient(180deg, rgba(246,244,240,0) 0%, rgba(255,16,16,0.55) 30%, #4a0d12 62%, #090909 100%); }
+
+  /* ---------- Footer ---------- */
+  .footer { background: var(--black); color: var(--paper); padding-top: 1.6rem; }
+  /* welcome strip: yellow scalloped band, framed script "Welcome" */
+  .welcome { position: relative; display: grid; place-items: center; padding: clamp(2.6rem, 6vh, 4rem) var(--gutter) clamp(3.4rem, 7vh, 4.6rem); background: var(--yellow); color: var(--red); }
+  .welcome::before { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 14px; background: radial-gradient(circle at 14px 14px, var(--yellow) 12.5px, transparent 13.5px) 0 0 / 28px 28px repeat-x; animation: scallop 3.5s linear infinite reverse; }
+  .welcome-card { position: relative; display: grid; justify-items: center; padding: clamp(1.4rem, 3vw, 2.2rem) clamp(2.2rem, 7vw, 6rem) clamp(1.2rem, 2.6vw, 1.8rem); animation: welcomeFloat 4s ease-in-out infinite; }
+  .welcome-frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(84,9,9,0.18)); }
+  .welcome-frame rect { fill: none; stroke: var(--paper); stroke-width: 4; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s var(--ease); }
+  .welcome-word { position: relative; margin: 0; font-family: "Great Vibes", cursive; font-weight: 400; font-size: clamp(3.6rem, 10vw, 8.5rem); line-height: 1.05; padding: 0 0.15em; margin-inline: -0.1em; clip-path: inset(-20% 100% -20% -20%); transition: clip-path 2s cubic-bezier(0.65, 0, 0.35, 1) 0.4s; }
+  .welcome-sub { position: relative; margin: 0.2rem 0 0; font-family: "Manrope", sans-serif; font-weight: 600; font-size: clamp(0.8rem, 1.4vw, 1.15rem); margin-right: -0.55em; text-transform: uppercase; opacity: 0; letter-spacing: 1.2em; transition: opacity 1s var(--ease) 1.6s, letter-spacing 1.4s var(--ease) 1.6s; }
+  @keyframes welcomeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .footer.is-in .welcome-frame rect { stroke-dashoffset: 0; }
+  .footer.is-in .welcome-word { clip-path: inset(-20% -20% -20% -20%); }
+  .footer.is-in .welcome-sub { opacity: 1; letter-spacing: 0.55em; }
+  .footer-band { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 2rem 3rem; flex-wrap: wrap; padding: clamp(2.8rem, 6vh, 4rem) var(--gutter) clamp(2.4rem, 5vh, 3.4rem); background: var(--red); }
+  /* scalloped top edge, drifting sideways */
+  .footer-band::before { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 14px; background: radial-gradient(circle at 14px 14px, var(--red) 12.5px, transparent 13.5px) 0 0 / 28px 28px repeat-x; animation: scallop 3.5s linear infinite; }
+  @keyframes scallop { to { background-position-x: 28px; } }
+  .footer-tag { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1.15rem, 1.7vw, 1.55rem); letter-spacing: -0.01em; text-transform: uppercase; }
+  .footer-tag em { font-family: "Playfair Display", serif; font-weight: 500; text-transform: none; color: var(--yellow); letter-spacing: 0; }
+  .footer-tag .star { display: inline-block; margin-left: 0.3em; font-style: normal; color: var(--yellow); animation: tickerSpin 6s linear infinite; }
+  .footer-social { display: flex; gap: 1.1rem; margin-top: 1.2rem; }
+  .footer-social a { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 1.5px solid rgba(246,244,240,0.35); border-radius: 50%; transition: transform 0.45s var(--ease), background 0.3s, color 0.3s, border-color 0.3s; }
+  .footer-social a:hover { transform: translateY(-4px) rotate(-8deg); background: var(--yellow); border-color: var(--yellow); color: var(--red); }
+  .footer-social svg { width: 1.15rem; height: 1.15rem; }
+  .footer-right { display: grid; justify-items: end; gap: 0.9rem; text-align: right; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.6rem 1.4rem; font-family: "JetBrains Mono", monospace; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer-links a { position: relative; padding-bottom: 2px; }
+  .footer-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: currentColor; transform-origin: left; transition: transform 0.5s var(--ease); }
+  .footer-links a:hover { color: var(--yellow); }
+  .footer-links a:hover::after { transform: scaleX(0); transform-origin: right; }
+  .footer-copy { margin: 0; font-size: 0.95rem; font-weight: 600; color: rgba(246,244,240,0.9); }
+  .footer-copy a:hover { color: var(--yellow); }
+  .footer-meta { margin: 0; font-family: "JetBrains Mono", monospace; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(246,244,240,0.6); }
+  /* scroll-in reveal */
+  .f-rev { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
+  .footer.is-in .f-rev { opacity: 1; transform: none; }
+
+  /* ---------- Tablet ---------- */
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .wwd .stage, .svc .stage, .diff .stage { grid-template-columns: 1fr; align-content: center; gap: 2rem; }
+    .svc-head h2 { font-size: clamp(2.6rem, 8vw, 5rem); margin: 0.8rem 0; }
+    .svc-head .copy { display: none; }
+    .svc-count { margin-top: 0.6rem; }
+    .svc-stack { height: min(38rem, calc(100svh - 17rem)); }
+  }
+  /* ---------- Ticker strip (between hero and 02) ---------- */
+  .ticker { position: relative; z-index: 10; overflow: hidden; transform-origin: 50% 50%; will-change: transform; backface-visibility: hidden; background: var(--red); color: var(--paper); border-block: 1px solid var(--burgundy); box-shadow: 0 18px 40px -24px rgba(84,9,9,0.55); }
+  .ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 6rem; z-index: 1; pointer-events: none; }
+  .ticker::before { left: 0; background: linear-gradient(90deg, var(--red), transparent); }
+  .ticker::after { right: 0; background: linear-gradient(-90deg, var(--red), transparent); }
+  .ticker-track { display: flex; width: max-content; animation: ticker 38s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-group { display: flex; align-items: center; flex-shrink: 0; padding: 1.05rem 0; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(0.95rem, 1.35vw, 1.3rem); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+  .ticker-group > span { padding: 0 1.1rem; }
+  .ticker-group .star { padding: 0; color: var(--yellow); display: inline-block; animation: tickerSpin 6s linear infinite; }
+  .ticker-group .box { display: inline-block; margin-left: 0.35em; padding: 0.05em 0.35em; border: 2px solid var(--yellow); color: var(--yellow); animation: tickerPulse 2.4s var(--ease) infinite; }
+  .ticker-group .it { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--yellow); font-size: 1.12em; }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  @keyframes tickerSpin { to { transform: rotate(360deg); } }
+  @keyframes tickerPulse { 0%, 100% { background: transparent; color: var(--yellow); } 50% { background: var(--yellow); color: var(--red); } }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 767px) {
+    .ticker-track { animation-duration: 26s; }
+    .ticker::before, .ticker::after { width: 2.5rem; }
+    .nav-cta { display: none; }
+    .nav-menu { display: block; }
+    .hero .stage { align-items: flex-start; padding-top: 6.5rem; }
+    .hero h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); margin: 1rem 0 1rem; }
+    .hero-sub { font-size: 0.98rem; }
+    .hero-note { display: none; }
+    .ring-a { width: 120vw; right: -50vw; top: 40vh; }
+    .ring-b, .scroll-cue { display: none; }
+    .wwd .label, .svc .label { position: static; }
+    .wwd .stage { align-content: center; }
+    .big-words { font-size: clamp(3.2rem, 17vw, 5rem); }
+    .statement { font-size: 1.15rem; }
+    .wwd-text .copy { font-size: 0.92rem; }
+    .wwd-text .copy.extra { display: none; }
+    .how-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .how-head .copy { display: none; }
+    .way-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+    .card { padding: 1.3rem; border-radius: 1.2rem; }
+    .card h3 { margin: 0.7rem 0 0.5rem; font-size: 1.35rem; }
+    .card .copy { font-size: 0.88rem; line-height: 1.55; }
+    .card p + p { display: none; }
+    .svc-count { display: none; }
+    .svc-stack { height: calc(100svh - 13rem); }
+    .svc-card { padding: 1.3rem; border-radius: 1.3rem; }
+    .svc-card h3 { font-size: 2rem; margin: 0.9rem 0 0.5rem; }
+    .svc-card > p { font-size: 0.9rem; }
+    .svc-card ul { grid-template-columns: 1fr 1fr; gap: 0.35rem 0.8rem; font-size: 0.76rem; padding-top: 0.9rem; }
+    .svc-card::after { display: none; }
+    .svc-head h2 { font-size: 2.4rem; }
+    .svc-card.long ul { grid-template-columns: 1fr 1fr; gap: 0.3rem 0.8rem; font-size: 0.74rem; }
+    .t-head, .t-row { grid-template-columns: 1fr 1.4rem 1.15fr; gap: 0.6rem; }
+    .t-old { font-size: 0.8rem; }
+    .t-new { font-size: 0.9rem; }
+    .diff .copy { display: none; }
+    .build-foot { flex-direction: column; align-items: flex-start; }
+    .cta { padding: 1.05rem 1.5rem; font-size: 0.8rem; }
+    .footer-band { flex-direction: column; align-items: flex-start; }
+    .footer-right { justify-items: start; text-align: left; }
+    .footer-links { justify-content: flex-start; }
+  }
+
+  /* ---------- Reduced motion: no smooth scroll, no parallax, no pinning; stable flower ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .pin { height: auto !important; }
+    .stage { position: relative; height: auto; min-height: 100svh; }
+    .svc-stack { height: auto; display: grid; gap: 1rem; }
+    .svc-card { position: relative; inset: auto; }
+    #gl { position: absolute; height: 100vh; }
+    .hero-intro { opacity: 1; transform: none; filter: none; transition: none; }
+    .scroll-cue svg, .menu, .menu a { animation: none; transition: none; }
+    .ticker-track, .ticker-group .star, .ticker-group .box, .footer-band::before, .footer-tag .star, .welcome::before, .welcome-card { animation: none; }
+    .welcome-frame rect { stroke-dashoffset: 0; transition: none; }
+    .welcome-word { clip-path: none; transition: none; }
+    .welcome-sub { opacity: 1; letter-spacing: 0.55em; transition: none; }
+    .f-rev { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+
+<body>
+<div class="world-bg" id="worldBg" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="LOCA BRANDS, back to top">LOCA BRANDS<span>.</span></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#what-we-do">What We Do</a>
+    <a href="#how-we-work">How We Work</a>
+    <a href="#services">Our Services</a>
+    <a href="#difference">Our Difference</a>
+  </nav>
+  <a class="nav-cta" href="#lets-build">Let's Build <span class="arrow" aria-hidden="true">↗</span></a>
+  <button class="nav-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a href="#what-we-do" style="--i:0">What We Do</a>
+  <a href="#how-we-work" style="--i:1">How We Work</a>
+  <a href="#services" style="--i:2">Our Services</a>
+  <a href="#difference" style="--i:3">Our Difference</a>
+  <a href="#lets-build" style="--i:4">Let's Build</a>
+  <a class="menu-mail" href="mailto:Pranav@locabrands.com" style="--i:5">Pranav@locabrands.com</a>
+</div>
+
+<main>
+  <!-- 01 — Intro -->
+  <section class="pin hero" id="top" aria-label="Introduction">
+    <div class="stage">
+      <div class="deco" aria-hidden="true">
+        <svg class="ring-a" data-fx viewBox="0 0 400 400"><circle cx="200" cy="200" r="198" fill="none" stroke="rgba(9,9,9,0.1)"/><circle cx="200" cy="200" r="150" fill="none" stroke="rgba(9,9,9,0.07)"/><circle cx="200" cy="200" r="100" fill="none" stroke="rgba(255,16,16,0.14)" stroke-dasharray="2 6"/></svg>
+        <svg class="ring-b" data-fx viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,16,16,0.35)"/><circle cx="50" cy="50" r="6" fill="#ff1010"/></svg>
+        <svg class="curve" data-fx viewBox="0 0 600 200" preserveAspectRatio="none"><path d="M0 150 C 150 40, 300 220, 600 60" fill="none" stroke="rgba(74,13,18,0.14)" stroke-width="1.2"/></svg>
+        <span class="fg-dot" data-fx style="width:10px;height:10px;left:52vw;top:22vh"></span>
+        <span class="fg-dot" data-fx style="width:6px;height:6px;left:88vw;top:74vh;background:#090909"></span>
+      </div>
+      <div class="hero-copy" id="heroCopy" data-fx>
+        <p class="label hero-intro">Independent brand building studio · LOCA BRANDS</p>
+        <h1 class="display hero-intro" style="--d:.1s"><span class="l thin">We build the</span><span class="l">Founder.</span><span class="l">The Brand.</span><span class="l red">The Demand Engine.</span></h1>
+        <p class="hero-sub hero-intro" style="--d:.22s">From idea to product, brand, technology, go-to-market and growth.</p>
+        <p class="copy hero-note hero-intro" style="--d:.32s">We bring the D2C ecosystem together as one integrated system — building new brands and thoughtfully evolving what already exists.</p>
+      </div>
+      <div class="bloom-meter hero-intro" style="--d:.5s" aria-hidden="true"><span id="bloomLabel">Wilted</span><i></i></div>
+      <div class="scroll-cue hero-intro" id="scrollCue" style="--d:.55s" aria-hidden="true">SCROLL <svg viewBox="0 0 16 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1v25M2 20l6 6 6-6"/></svg></div>
+    </div>
+  </section>
+
+  <!-- Ticker strip -->
+  <div class="ticker" aria-label="Build, Launch, Scale — one integrated system">
+    <div class="ticker-track" aria-hidden="true">
+      <div class="ticker-group">
+        <span>Build · Launch · Scale</span><i class="star">✦</i>
+        <span>Founder</span><i class="star">✦</i>
+        <span>Brand</span><i class="star">✦</i>
+        <span>Demand <span class="it">Engine</span></span><i class="star">✦</i>
+        <span>One Integrated<b class="box">System</b></span><i class="star">✦</i>
+        <span>Senior-led D2C Studio</span><i class="star">✦</i>
+      </div>
+      <div class="ticker-group">
+        <span>Build · Launch · Scale</span><i class="star">✦</i>
+        <span>Founder</span><i class="star">✦</i>
+        <span>Brand</span><i class="star">✦</i>
+        <span>Demand <span class="it">Engine</span></span><i class="star">✦</i>
+        <span>One Integrated<b class="box">System</b></span><i class="star">✦</i>
+        <span>Senior-led D2C Studio</span><i class="star">✦</i>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Ticker flop: the strip flips in on entry, tilts in 3D with scroll speed, and runs in the scroll direction
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const tk = document.querySelector('.ticker'), tr = tk.querySelector('.ticker-track');
+      tr.style.animation = 'none';
+      let half = 0, x = 0, dir = 1, vel = 0, flop = 0, hover = false, lastY = scrollY, last = performance.now();
+      const measure = () => { half = tr.scrollWidth / 2; };
+      measure(); addEventListener('resize', measure); document.fonts && document.fonts.ready.then(measure);
+      tk.addEventListener('mouseenter', () => hover = true);
+      tk.addEventListener('mouseleave', () => hover = false);
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      (function loop(now) {
+        const dt = Math.min(0.05, (now - last) / 1000); last = now;
+        const y = scrollY, d = y - lastY; lastY = y;
+        vel += (d - vel) * 0.18;
+        if (Math.abs(d) > 1) dir = d > 0 ? 1 : -1;
+        // marquee: base speed, boosted by scroll speed, direction follows the scroll
+        const speed = hover ? 0 : 55 + Math.min(Math.abs(vel) * 40, 1400);
+        x -= speed * dt * dir;
+        if (half) { if (x <= -half) x += half; if (x > 0) x -= half; }
+        tr.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
+        // flop: springy tilt from scroll velocity + flip-in as the strip enters the viewport
+        flop += (clamp(vel * 1.4, -38, 38) - flop) * 0.12;
+        const r = tk.getBoundingClientRect(), enter = clamp((innerHeight - r.top) / (innerHeight * 0.3), 0, 1);
+        const flip = (1 - enter) * -85;
+        tk.style.transform = `perspective(900px) rotateX(${(flip + flop).toFixed(2)}deg) skewY(${(flop * -0.06).toFixed(2)}deg) scale(${(1 + Math.abs(flop) * 0.002).toFixed(3)})`;
+        requestAnimationFrame(loop);
+      })(last);
+    })();
+  </script>
+
+  <!-- 02 — What we do -->
+  <section class="pin wwd" id="what-we-do">
+    <div class="stage">
+      <p class="label">02 — What We Do</p>
+      <h2 class="display big-words" aria-label="Build. Launch. Scale.">
+        <span data-fx aria-hidden="true">Build.</span><span data-fx aria-hidden="true">Launch.</span><span data-fx aria-hidden="true">Scale.</span>
+      </h2>
+      <div class="wwd-text">
+        <p class="statement" data-fx>We are a senior-led brand building studio that helps founders and businesses build, launch, evolve, and scale consumer brands as one integrated system.</p>
+        <p class="copy" data-fx>We partner with founders and leadership teams to build new brands and thoughtfully evolve what already exists.</p>
+        <p class="copy extra" data-fx>We create the systems needed for sustainable growth.</p>
+        <p class="copy" data-fx>From idea to product, brand, design, technology, go-to-market, and growth, we bring the D2C ecosystem together as <span class="serif red">one integrated system.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — How we work -->
+  <section class="pin how" id="how-we-work">
+    <div class="stage">
+      <div class="how-head">
+        <div>
+          <p class="label">03 — How We Work</p>
+          <h2 class="display" data-fx style="margin-top:1.2rem"><span>Two</span><span class="red">Ways.</span></h2>
+        </div>
+      </div>
+      <div class="way-grid">
+        <article class="card" data-fx id="way1"><div class="card-lift">
+          <span class="way-num">01</span>
+          <h3>On-Demand Expertise</h3>
+          <p class="copy">Brands and founders can engage us for specific services or challenges based on their immediate requirements.</p>
+          <p class="copy">We tailor our expertise and assemble the right capabilities around what the brand needs.</p>
+        </div></article>
+        <article class="card" data-fx id="way2"><div class="card-lift">
+          <span class="way-num">02</span>
+          <h3>End-to-End Brand Building</h3>
+          <p class="copy">For founders building a new venture, we can become a long-term strategic and execution partner — working across the entire journey from idea, product development and brand building to launch, growth, scale, and ultimately exit.</p>
+        </div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — Our services: six capabilities stack in sequence -->
+  <section class="pin svc" id="services">
+    <div class="stage">
+      <div class="svc-head">
+        <p class="label">04 — Our Services</p>
+        <h2 class="display"><span>The</span><span class="red">Engine.</span></h2>
+        <p class="copy" style="max-width:26rem">One integrated system across product, brand, design, technology, go-to-market and personal branding.</p>
+        <div class="svc-count" id="svcCount" aria-hidden="true"><b id="svcNum">01</b><i></i><span>06</span></div>
+      </div>
+      <div class="svc-stack" id="svcStack">
+        <article class="svc-card" data-n="01" data-speed="0.35">
+          <div class="svc-top"><span>Service <b>01</b></span><span>Product</span></div>
+          <h3>Product</h3>
+          <p>From opportunity identification to a market-ready product.</p>
+          <ul><li>Market &amp; consumer research</li><li>Product opportunity</li><li>Product strategy</li><li>Product architecture</li><li>Product development</li><li>Packaging strategy</li><li>Product-market fit</li></ul>
+        </article>
+        <article class="svc-card" data-n="02" data-speed="0.42">
+          <div class="svc-top"><span>Service <b>02</b></span><span>Brand</span></div>
+          <h3>Brand</h3>
+          <p>Create a brand people can recognize, remember and believe in.</p>
+          <ul><li>Brand strategy</li><li>Positioning</li><li>Naming</li><li>Brand architecture</li><li>Brand identity</li><li>Brand narrative</li><li>Communication strategy</li></ul>
+        </article>
+        <article class="svc-card" data-n="03" data-speed="0.5">
+          <div class="svc-top"><span>Service <b>03</b></span><span>Design</span></div>
+          <h3>Design</h3>
+          <p>Turn strategy into a distinctive consumer experience.</p>
+          <ul><li>Visual identity</li><li>Packaging</li><li>Digital experience</li><li>Website &amp; e-commerce</li><li>Campaign design</li><li>Content systems</li><li>Retail &amp; physical touchpoints</li></ul>
+        </article>
+        <article class="svc-card" data-n="04" data-speed="0.58">
+          <div class="svc-top"><span>Service <b>04</b></span><span>Technology</span></div>
+          <h3>Technology</h3>
+          <p>Build the digital infrastructure behind the brand.</p>
+          <ul><li>E-commerce</li><li>Websites</li><li>Conversion architecture</li><li>Digital systems</li><li>Analytics</li><li>CRM</li><li>Automation</li><li>Growth technology</li></ul>
+        </article>
+        <article class="svc-card" data-n="05" data-speed="0.66">
+          <div class="svc-top"><span>Service <b>05</b></span><span>Go-to-Market</span></div>
+          <h3>Go-to-Market</h3>
+          <p>Turn the brand into a business.</p>
+          <ul><li>GTM strategy</li><li>Launch planning</li><li>Customer acquisition</li><li>Content &amp; social</li><li>Influencer strategy</li><li>Performance marketing</li><li>Distribution</li><li>Retention</li><li>Growth systems</li></ul>
+        </article>
+        <article class="svc-card long" data-n="06" data-speed="0.72">
+          <div class="svc-top"><span>Service <b>06</b></span><span>Personal Branding</span></div>
+          <h3>Personal<br>Branding</h3>
+          <p>LinkedIn + Instagram — build the founder alongside the brand.</p>
+          <ul><li>Personal brand strategy</li><li>Positioning &amp; narrative</li><li>Thought leadership</li><li>Content strategy</li><li>Founder-led storytelling</li><li>Authority building</li><li>Network &amp; community strategy</li><li>Content pillars &amp; formats</li><li>Short-form video strategy</li><li>Reels &amp; visual storytelling</li><li>Founder lifestyle &amp; behind-the-scenes content</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — Our difference -->
+  <section class="pin diff" id="difference">
+    <div class="stage">
+      <div>
+        <p class="label">05 — Our Difference</p>
+        <h2 class="display"><span>Not another</span><span class="red">agency.</span></h2>
+        <p class="copy" style="max-width:24rem">A different operating model: strategy and execution under one roof, built for long-term outcomes.</p>
+      </div>
+      <div class="table" role="table" aria-label="Traditional model compared with our model">
+        <div class="t-head" role="row"><span role="columnheader">Traditional Model</span><span aria-hidden="true"></span><span role="columnheader">Our Model</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Marketing agency</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Brand building studio</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Function-led</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Outcome-led</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Campaign focused</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Business focused</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Multiple disconnected partners</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">One integrated system</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Execution first</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Strategy → execution</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Short-term projects</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Long-term partnerships</span></div>
+        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Marketing after product</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Product + brand + GTM from day one</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Let's build: full bloom -->
+  <section class="pin build" id="lets-build">
+    <div class="stage">
+      <p class="label">06 — Let's Build</p>
+      <h2 class="display" aria-label="The Founder. The Brand. The Demand.">
+        <span data-fx aria-hidden="true">The Founder.</span><span data-fx aria-hidden="true">The Brand.</span><span data-fx aria-hidden="true">The Demand.</span>
+      </h2>
+      <div class="build-foot">
+        <p class="copy" data-fx>A senior-led partner for the journey from idea to product, brand, launch, growth and scale.</p>
+        <a class="cta" id="cta" data-fx href="mailto:Pranav@locabrands.com?subject=Let%27s%20build">Start a Conversation <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bridge" id="bridge" aria-hidden="true"></div>
+
+<footer class="footer" id="contact">
+  <div class="welcome">
+    <div class="welcome-card">
+      <svg class="welcome-frame" aria-hidden="true" preserveAspectRatio="none"><rect x="0" y="0" width="100%" height="100%" pathLength="1"/></svg>
+      <p class="welcome-word">Welcome</p>
+      <p class="welcome-sub">to Loca Brands</p>
+    </div>
+  </div>
+  <div class="footer-band">
+    <div>
+      <p class="footer-tag f-rev">Loca Brands! We build <em>brands</em> as one system<i class="star" aria-hidden="true">✦</i></p>
+      <div class="footer-social f-rev" style="--d:.12s">
+        <a href="mailto:Pranav@locabrands.com" aria-label="Email Loca Brands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        <a href="#" aria-label="Loca Brands on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Loca Brands on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.77 2.5 4.77 5.75v5.7h-4v-5.05c0-1.2-.02-2.75-1.7-2.75-1.7 0-1.96 1.3-1.96 2.66v5.14h-4v-11Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-right">
+      <nav class="footer-links f-rev" style="--d:.08s" aria-label="Footer"><a href="#what-we-do">What We Do</a><a href="#services">Services</a><a href="#lets-build">Let's Build</a></nav>
+      <p class="footer-copy f-rev" style="--d:.18s">© 2026 LOCA BRANDS · <a href="mailto:Pranav@locabrands.com">Pranav@locabrands.com</a> · <a href="tel:+919786564820">+91 97865 64820</a></p>
+      <p class="footer-meta f-rev" style="--d:.28s">D2C · Product · Brand · Technology · Go-to-market · Growth</p>
+    </div>
+  </div>
+</footer>
+<script>
+  (() => {
+    const f = document.getElementById('contact');
+    if (!('IntersectionObserver' in window)) { f.classList.add('is-in'); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { f.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.25 });
+    io.observe(f);
+  })();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+/* =====================================================================
+   Helpers
+   ===================================================================== */
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
+const smoothstep = (a, b, x) => { const t = clamp01((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
+const lerp = THREE.MathUtils.lerp;
+const TAU = Math.PI * 2;
+let seed = 20260924;
+const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+let isMobile = window.innerWidth < 768;
+const lowDetail = isMobile;
+
+/* =====================================================================
+   WebGL: renderer, scene, camera, light
+   ===================================================================== */
+const canvas = document.getElementById('gl');
+let webglOK = true;
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+} catch (e) { webglOK = false; }
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+const C = (h) => new THREE.Color(h);
+const hemi = new THREE.HemisphereLight(0xdfe6ee, 0x8a8f96, 0.9);
+const key = new THREE.DirectionalLight(0xdfe7f2, 1.4); key.position.set(-3, 5, 5);
+const fill = new THREE.DirectionalLight(0xffffff, 0.35); fill.position.set(3, -1, 4);
+const rim = new THREE.DirectionalLight(0xffffff, 0.3); rim.position.set(4, 2.5, -5);
+const backLight = new THREE.PointLight(0xffc27a, 0, 0, 2);
+scene.add(hemi, key, fill, rim, backLight);
+const LIGHT = { skyA: C('#dfe6ee'), skyB: C('#fff4df'), groundA: C('#8a8f96'), groundB: C('#f0c070'), keyA: C('#dfe7f2'), keyB: C('#ffe6c4'), rimA: C('#e8edf5'), rimB: C('#fff0c0') };
+
+function radialTexture(size, stops) {
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  stops.forEach(([o, col]) => grad.addColorStop(o, col));
+  g.fillStyle = grad; g.fillRect(0, 0, size, size);
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; return tex;
+}
+const dotTex = radialTexture(64, [[0, 'rgba(255,255,255,1)'], [0.35, 'rgba(255,255,255,0.85)'], [1, 'rgba(255,255,255,0)']]);
+const glowTex = radialTexture(256, [[0, 'rgba(255,255,255,1)'], [0.4, 'rgba(255,255,255,0.45)'], [1, 'rgba(255,255,255,0)']]);
+
+function makeBlade(o) {
+  const geo = new THREE.PlaneGeometry(1, 1, o.segW, o.segL);
+  const pos = geo.attributes.position, col = new Float32Array(pos.count * 3);
+  const ph = rand() * 10, wob = o.wobble ?? 0.035;
+  for (let i = 0; i < pos.count; i++) {
+    const u = pos.getX(i) * 2, v = pos.getY(i) + 0.5;
+    let w;
+    if (o.leaf) w = Math.pow(Math.sin(Math.PI * v), 0.85) * (1 - 0.15 * v);
+    else { w = Math.pow(Math.sin(Math.PI * Math.pow(v, 0.6)), 0.55); w *= smoothstep(0, 0.2, v) * 0.7 + 0.3; }
+    w *= 1 + Math.sin(v * 15 + ph) * wob + Math.sin(v * 37 + ph * 1.7) * wob * 0.35;
+    let z = o.cup * u * u * w + o.curl * v * v + o.fold * Math.abs(u) * w;
+    z += Math.sin(u * 3.1 + ph) * Math.pow(Math.abs(u), 3) * 0.03 * v;
+    pos.setXYZ(i, u * w * o.width * 0.5, v * o.length, z);
+    let r, g, b;
+    if (o.leaf) { const rib = 1 - smoothstep(0, 0.14, Math.abs(u)); const f = (0.82 + 0.18 * rib) * lerp(1, 0.86, v); r = f; g = f; b = f * 0.92; }
+    else {
+      const baseMix = smoothstep(0, 0.38, v), tipMix = smoothstep(0.75, 1, v);
+      const vein = 1 - 0.045 * (0.5 + 0.5 * Math.cos(u * 26)) * (1 - v * 0.6);
+      r = lerp(1, 0.95, tipMix) * vein; g = lerp(0.9, 1.0, baseMix) * lerp(1, 0.9, tipMix) * vein; b = lerp(0.72, 1.0, baseMix) * lerp(1, 0.94, tipMix) * vein;
+    }
+    col[i * 3] = r; col[i * 3 + 1] = g; col[i * 3 + 2] = b;
+  }
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  geo.computeVertexNormals();
+  return geo;
+}
+
+/* =====================================================================
+   Flower — `rig` carries it through the story, the flower's own pose is
+   the bloom state. Long stem so its end never shows while it travels.
+   ===================================================================== */
+const rig = new THREE.Group(); scene.add(rig);
+const flower = new THREE.Group(); flower.position.y = -2.6; rig.add(flower);
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const stemWilt  = [V(0, -14, 0), V(0, -1.6, 0), V(0, 0, 0), V(0.05, 0.8, 0), V(0.3, 1.55, 0.05), V(0.82, 1.96, 0.12), V(1.14, 1.58, 0.2)];
+const stemBloom = [V(0, -14, 0), V(0, -1.6, 0), V(0, 0, 0), V(0.03, 0.8, 0.02), V(-0.02, 1.62, 0.05), V(0.02, 2.4, 0.2), V(0, 2.92, 0.82)];
+const stemPts = stemWilt.map((p) => p.clone());
+const stemCurve = new THREE.CatmullRomCurve3(stemPts, false, 'catmullrom', 0.5);
+const STEM_SEG = lowDetail ? 60 : 110, STEM_RAD = lowDetail ? 8 : 12;
+const stemGeo = new THREE.TubeGeometry(stemCurve, STEM_SEG, 0.05, STEM_RAD, false);
+const stemMat = new THREE.MeshPhysicalMaterial({ color: '#7b7658', roughness: 0.55, sheen: 0.3, sheenRoughness: 0.7, sheenColor: C('#cfe3b8') });
+const stem = new THREE.Mesh(stemGeo, stemMat); stem.frustumCulled = false; flower.add(stem);
+const sPos = stemGeo.attributes.position.array, sNor = stemGeo.attributes.normal.array;
+const P = new THREE.Vector3(), P1 = new THREE.Vector3(), P2 = new THREE.Vector3();
+const T = new THREE.Vector3(), N = new THREE.Vector3(), B = new THREE.Vector3();
+const REF = new THREE.Vector3(0, 0, 1), UP = new THREE.Vector3(0, 1, 0), ZAX = new THREE.Vector3(0, 0, 1);
+const qTmp = new THREE.Quaternion();
+
+function updateStem(radiusScale) {
+  let o = 0;
+  for (let i = 0; i <= STEM_SEG; i++) {
+    const t = i / STEM_SEG;
+    stemCurve.getPoint(t, P);
+    const t2 = Math.min(1, t + 0.002), t1 = t2 - 0.002;
+    stemCurve.getPoint(t1, P1); stemCurve.getPoint(t2, P2);
+    T.subVectors(P2, P1).normalize(); N.crossVectors(T, REF).normalize(); B.crossVectors(T, N);
+    const r = lerp(0.062, 0.028, Math.pow(t, 0.8)) * radiusScale;
+    for (let j = 0; j <= STEM_RAD; j++) {
+      const a = (j / STEM_RAD) * TAU, c = Math.cos(a), s = Math.sin(a);
+      const nx = c * N.x + s * B.x, ny = c * N.y + s * B.y, nz = c * N.z + s * B.z;
+      sPos[o] = P.x + r * nx; sPos[o + 1] = P.y + r * ny; sPos[o + 2] = P.z + r * nz;
+      sNor[o] = nx; sNor[o + 1] = ny; sNor[o + 2] = nz; o += 3;
+    }
+  }
+  stemGeo.attributes.position.needsUpdate = true; stemGeo.attributes.normal.needsUpdate = true;
+}
+
+const head = new THREE.Group(); flower.add(head);
+// dusty grey → dusty rose → Loca Brands red
+const PAL_WILT  = ['#8C827A', '#A49B92', '#6E6863'].map(C);
+const PAL_REC   = ['#C98F84', '#D0827F', '#D99A8F'].map(C);
+const PAL_BLOOM = ['#FF1010', '#FF2E2E', '#FF5A4E'].map(C);
+const petalLayers = lowDetail
+  ? [{ n: 6, len: 1.1, wid: 0.9, open: 1.5, r0: 0.07, cup: 0.26, curl: -0.22, delay: 0.05 }, { n: 5, len: 0.9, wid: 0.74, open: 1.2, r0: 0.05, cup: 0.3, curl: -0.1, delay: 0.12 }, { n: 3, len: 0.68, wid: 0.56, open: 0.88, r0: 0.03, cup: 0.3, curl: 0.02, delay: 0.2 }]
+  : [{ n: 9, len: 1.1, wid: 0.8, open: 1.5, r0: 0.07, cup: 0.26, curl: -0.22, delay: 0.05 }, { n: 7, len: 0.9, wid: 0.68, open: 1.2, r0: 0.05, cup: 0.3, curl: -0.1, delay: 0.12 }, { n: 5, len: 0.68, wid: 0.52, open: 0.88, r0: 0.03, cup: 0.3, curl: 0.02, delay: 0.2 }];
+const segW = lowDetail ? 6 : 9, segL = lowDetail ? 12 : 18;
+const petals = [];
+let pIdx = 0;
+petalLayers.forEach((L, li) => {
+  for (let i = 0; i < L.n; i++) {
+    const pivot = new THREE.Group();
+    const ang = (i / L.n) * TAU + li * (Math.PI / L.n) + (rand() - 0.5) * 0.2;
+    pivot.rotation.y = ang; head.add(pivot);
+    const tilt = new THREE.Group(); pivot.add(tilt);
+    const mat = new THREE.MeshPhysicalMaterial({ vertexColors: true, side: THREE.DoubleSide, roughness: 0.38, metalness: 0, clearcoat: 0.15, clearcoatRoughness: 0.25, sheen: 0.4, sheenRoughness: 0.55, sheenColor: C('#ffd6d0') });
+    const mesh = new THREE.Mesh(makeBlade({ length: L.len * (0.94 + rand() * 0.1), width: L.wid * (0.92 + rand() * 0.14), cup: L.cup, curl: L.curl, fold: 0, segW, segL }), mat);
+    mesh.rotation.y = -Math.PI / 2; tilt.add(mesh);
+    petals.push({ tilt, mesh, mat, tone: (i + li) % 3, r0: L.r0, layerY: li * 0.025, facing: Math.cos(ang - Math.PI / 2),
+      delay: L.delay + (pIdx++ % 7) * 0.012 + rand() * 0.04, wiltOpen: -0.08 + rand() * 0.18, bloomOpen: L.open + (rand() - 0.5) * 0.16,
+      wiltTwist: (rand() - 0.5) * 0.5, bloomTwist: (rand() - 0.5) * 0.1, wiltScale: 0.65 + rand() * 0.1, phase: rand() * TAU });
+  }
+});
+const sepals = [];
+for (let i = 0; i < 5; i++) {
+  const pivot = new THREE.Group(); pivot.rotation.y = (i / 5) * TAU + 0.3; head.add(pivot);
+  const tilt = new THREE.Group(); tilt.position.x = 0.05; pivot.add(tilt);
+  const mesh = new THREE.Mesh(makeBlade({ length: 0.36, width: 0.14, cup: 0.02, curl: -0.04, fold: 0.02, leaf: true, segW: 4, segL: 6 }), stemMat);
+  mesh.rotation.y = -Math.PI / 2; tilt.add(mesh);
+  sepals.push({ tilt, wilt: 0.35 + rand() * 0.2, bloom: 1.9 + rand() * 0.3 });
+}
+const center = new THREE.Group(); center.position.y = 0.03; head.add(center);
+const discMat = new THREE.MeshPhysicalMaterial({ color: '#a8912f', roughness: 0.8, sheen: 0.5, sheenColor: C('#ffe08a'), transparent: true, opacity: 0 });
+const disc = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 16), discMat); disc.scale.y = 0.55; center.add(disc);
+const STAMENS = lowDetail ? 24 : 40;
+const filamentMat = new THREE.MeshPhysicalMaterial({ color: '#f7e7b8', roughness: 0.6, transparent: true, opacity: 0 });
+const antherMat = new THREE.MeshPhysicalMaterial({ color: '#ffbf1f', roughness: 0.45, emissive: '#7a4a00', emissiveIntensity: 0.35, transparent: true, opacity: 0 });
+const filaments = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.0045, 0.007, 1, 5).translate(0, 0.5, 0), filamentMat, STAMENS);
+const anthers = new THREE.InstancedMesh(new THREE.SphereGeometry(0.022, 8, 6), antherMat, STAMENS);
+{
+  const m = new THREE.Matrix4(), q = new THREE.Quaternion(), dir = new THREE.Vector3(), base = new THREE.Vector3(), tip = new THREE.Vector3(), one = new THREE.Vector3(1, 1, 1), sc = new THREE.Vector3();
+  for (let k = 0; k < STAMENS; k++) {
+    const a = rand() * TAU, rr = 0.03 + rand() * 0.08, len = 0.28 + rand() * 0.12;
+    base.set(Math.cos(a) * rr, 0.02, Math.sin(a) * rr);
+    dir.set(Math.cos(a) * rr * 6, 1, Math.sin(a) * rr * 6).normalize();
+    q.setFromUnitVectors(UP, dir);
+    filaments.setMatrixAt(k, m.compose(base, q, sc.set(1, len, 1)));
+    tip.copy(base).addScaledVector(dir, len);
+    anthers.setMatrixAt(k, m.compose(tip, q, one));
+  }
+}
+center.add(filaments, anthers);
+const leafMat = new THREE.MeshPhysicalMaterial({ color: '#847d5c', vertexColors: true, side: THREE.DoubleSide, roughness: 0.5, sheen: 0.25, sheenColor: C('#d9f0c4') });
+const leafDefs = lowDetail ? [{ t: 0.57, a: 0.5 }, { t: 0.67, a: 3.3 }] : [{ t: 0.56, a: 0.35 }, { t: 0.64, a: 2.85 }, { t: 0.74, a: 5.75 }];
+const leaves = leafDefs.map((d, k) => {
+  const pivot = new THREE.Group(); flower.add(pivot);
+  const turn = new THREE.Group(); turn.rotation.y = d.a; pivot.add(turn);
+  const tilt = new THREE.Group(); turn.add(tilt);
+  const mesh = new THREE.Mesh(makeBlade({ length: 1.05 - k * 0.12, width: 0.36, cup: 0, curl: -0.2, fold: 0.07, leaf: true, wobble: 0.02, segW: lowDetail ? 5 : 8, segL: lowDetail ? 10 : 16 }), leafMat);
+  mesh.rotation.y = -Math.PI / 2; tilt.add(mesh);
+  return { pivot, tilt, t: d.t, wilt: 2.25 + rand() * 0.35, bloom: 0.8 + rand() * 0.35, delay: k * 0.06, phase: rand() * TAU };
+});
+const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: '#ffd9a0', transparent: true, opacity: 0, depthWrite: false }));
+glow.renderOrder = -1; scene.add(glow);
+const POLLEN = lowDetail ? 50 : 120;
+const pollenBase = new Float32Array(POLLEN * 4);
+for (let k = 0; k < POLLEN; k++) {
+  const th = rand() * TAU, ph = Math.acos(2 * rand() - 1), r = 0.35 + Math.pow(rand(), 0.7) * 1.5;
+  pollenBase[k * 4] = Math.sin(ph) * Math.cos(th) * r; pollenBase[k * 4 + 1] = Math.cos(ph) * r * 0.75 + 0.25;
+  pollenBase[k * 4 + 2] = Math.sin(ph) * Math.sin(th) * r * 0.8; pollenBase[k * 4 + 3] = rand() * TAU;
+}
+const pollenGeo = new THREE.BufferGeometry();
+const pollenPos = new Float32Array(POLLEN * 3);
+pollenGeo.setAttribute('position', new THREE.BufferAttribute(pollenPos, 3));
+const pollenMat = new THREE.PointsMaterial({ map: dotTex, color: '#ffd36b', size: lowDetail ? 0.055 : 0.045, transparent: true, opacity: 0, depthWrite: false });
+const pollen = new THREE.Points(pollenGeo, pollenMat); pollen.frustumCulled = false; scene.add(pollen);
+
+const C_STEM_W = C('#7b7658'), C_STEM_B = C('#4d8a3a'), C_LEAF_W = C('#847d5c'), C_LEAF_B = C('#5a9b44');
+const headWorld = new THREE.Vector3(), headScreen = new THREE.Vector3();
+let swayX = 0;
+const mouse = { x: 0, y: 0, sx: 0, sy: 0, active: false, px: -100, py: -100 };
+
+function stageColor(out, tone, cp) {
+  if (cp < 0.5) out.lerpColors(PAL_WILT[tone], PAL_REC[tone], smoothstep(0, 1, cp * 2));
+  else out.lerpColors(PAL_REC[tone], PAL_BLOOM[tone], smoothstep(0, 1, (cp - 0.5) * 2));
+}
+
+// Bloom state: p is the story's bloom value (0 wilted → 1 full bloom).
+function updateFlower(p, t) {
+  const idle = reduceMotion ? 0 : 1;
+  const stemP = easeInOutSine(smoothstep(0.1, 0.62, p));            // straightening centred around ~45%
+  const bloomProgress = smoothstep(0.18, 0.92, p);                   // petals separate ~30%, major bloom ~60%
+  const easedBloom = easeOutCubic(bloomProgress);
+  const cp = smoothstep(0.1, 0.9, p);
+  const life = 0.35 + 0.65 * p;
+  const sway = (Math.sin(t * 0.7) * 0.02 + Math.sin(t * 1.9 + 1.3) * 0.006) * idle * life + swayX;
+  for (let i = 0; i < stemPts.length; i++) {
+    stemPts[i].lerpVectors(stemWilt[i], stemBloom[i], stemP);
+    const k = Math.max(0, i - 1) / (stemPts.length - 2);
+    stemPts[i].x += sway * k * k * 1.5;
+  }
+  updateStem(lerp(0.8, 1, stemP));
+  stemMat.color.lerpColors(C_STEM_W, C_STEM_B, cp);
+  stemCurve.getPoint(1, P); stemCurve.getPoint(0.99, P1);
+  T.subVectors(P, P1).normalize();
+  head.position.copy(P);
+  head.quaternion.setFromUnitVectors(UP, T);
+  qTmp.setFromAxisAngle(ZAX, -sway * 1.4); head.quaternion.premultiply(qTmp);
+  head.scale.setScalar(lerp(0.8, 1, easedBloom));
+  for (const pt of petals) {
+    const local = clamp01((bloomProgress - pt.delay) / (1 - pt.delay));
+    const a = easeOutCubic(local) * 0.5 + smoothstep(0, 1, local) * 0.5;
+    const flutter = Math.sin(t * 1.1 + pt.phase) * 0.014 * (0.3 + a) * idle;
+    pt.tilt.rotation.z = -(lerp(pt.wiltOpen, pt.bloomOpen, a) + flutter + swayX * 0.4 * Math.sin(pt.phase));
+    pt.tilt.rotation.x = lerp(pt.wiltTwist, pt.bloomTwist, a);
+    pt.tilt.position.set(pt.r0 + pt.facing * 0.035 * a, pt.layerY + pt.facing * 0.02 * a, 0);
+    const s = lerp(pt.wiltScale, 1, a);
+    pt.mesh.scale.set(s * lerp(0.8, 1, a), s, s);
+    stageColor(pt.mat.color, pt.tone, cp);
+    pt.mat.emissive.copy(pt.mat.color).multiplyScalar(lerp(0.02, 0.14, cp));
+    pt.mat.roughness = lerp(0.62, 0.38, cp); pt.mat.clearcoat = lerp(0.02, 0.15, cp); pt.mat.sheen = lerp(0.12, 0.4, cp);
+  }
+  for (const s of sepals) s.tilt.rotation.z = -lerp(s.wilt, s.bloom, easeOutCubic(smoothstep(0.2, 0.8, p)));
+  const centerP = smoothstep(0.45, 0.9, p);
+  center.scale.setScalar(lerp(0.45, 1, centerP)); center.visible = centerP > 0.001;
+  discMat.opacity = filamentMat.opacity = antherMat.opacity = centerP;
+  discMat.transparent = filamentMat.transparent = antherMat.transparent = centerP < 0.999;
+  for (const lf of leaves) {
+    stemCurve.getPoint(lf.t, P); lf.pivot.position.copy(P);
+    const lp = easeOutCubic(smoothstep(0.12 + lf.delay, 0.75 + lf.delay, p));
+    lf.tilt.rotation.z = -(lerp(lf.wilt, lf.bloom, lp) + Math.sin(t * 0.9 + lf.phase) * 0.02 * idle * life);
+    lf.tilt.scale.setScalar(lerp(0.88, 1, lp));
+  }
+  leafMat.color.lerpColors(C_LEAF_W, C_LEAF_B, cp);
+  const lp = smoothstep(0.1, 1, p);
+  hemi.color.lerpColors(LIGHT.skyA, LIGHT.skyB, lp); hemi.groundColor.lerpColors(LIGHT.groundA, LIGHT.groundB, lp);
+  hemi.intensity = lerp(0.85, 1.6, lp); fill.intensity = lerp(0.35, 0.9, lp);
+  key.color.lerpColors(LIGHT.keyA, LIGHT.keyB, lp); key.intensity = lerp(1.3, 2.4, lp);
+  rim.color.lerpColors(LIGHT.rimA, LIGHT.rimB, lp); rim.intensity = lerp(0.3, 1.8, lp);
+  if (renderer) renderer.toneMappingExposure = lerp(0.92, 1.05, lp);
+  return easedBloom;
+}
+
+/* =====================================================================
+   Story layout: cached section offsets + keyframes (no per-frame layout reads)
+   ===================================================================== */
+const $ = (id) => document.getElementById(id);
+const secs = { hero: $('top'), wwd: $('what-we-do'), how: $('how-we-work'), svc: $('services'), diff: $('difference'), build: $('lets-build'), bridge: $('bridge') };
+const pageY = (el) => { let y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; };
+const S = {};   // { top, len } per pinned section; len = scrollable length while pinned
+let vh = 1, maxScroll = 1;
+const camA = new THREE.Vector3(), camB = new THREE.Vector3(), tgtA = new THREE.Vector3(), tgtB = new THREE.Vector3(), camTarget = new THREE.Vector3(), rigBase = new THREE.Vector3();
+let bloomKF = [], rigKF = [], viewKF = [];
+
+function layout() {
+  isMobile = window.innerWidth < 768;
+  const tablet = !isMobile && window.innerWidth <= 1024;
+  vh = window.innerHeight;
+  if (renderer) {
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowDetail ? 1.5 : 2));
+    renderer.setSize(window.innerWidth, vh, false);
+  }
+  camera.aspect = window.innerWidth / vh; camera.updateProjectionMatrix();
+  if (isMobile) {
+    rigBase.set(0, -2.3 + 2.6 * 0.72, 0); rig.userData.base = 0.72;
+    camA.set(0.2, 0.2, 10.6); camB.set(0.1, 0.35, 9.2); tgtA.set(0.3, -1.4, 0); tgtB.set(0, -1.1, 0);
+  } else if (tablet) {
+    rigBase.set(1.1, -2.8 + 2.6 * 0.9, 0); rig.userData.base = 0.9;
+    camA.set(0.4, 0.1, 9.8); camB.set(0.5, 0.3, 8.2); tgtA.set(0.5, -0.6, 0); tgtB.set(0.3, -0.2, 0);
+  } else {
+    rigBase.set(1.5, -2.95 + 2.6, 0); rig.userData.base = 1;
+    camA.set(0.9, -0.9, 8.8); camB.set(0.5, 0.3, 7.2); tgtA.set(1.2, -1.55, 0); tgtB.set(0.4, -0.42, 0);
+  }
+  for (const k of Object.keys(secs)) S[k] = { top: pageY(secs[k]), len: Math.max(1, secs[k].offsetHeight - vh) };
+  maxScroll = document.documentElement.scrollHeight - vh;
+  const at = (k, f) => S[k].top + S[k].len * f;
+
+  // Bloom follows the story (reversible, never autoplays).
+  bloomKF = [
+    [0, 0], [at('hero', 1), 0.18], [at('wwd', 1), 0.3],
+    [at('svc', 0), 0.4], [at('svc', 0.5), 0.6], [at('svc', 1), 0.75],
+    [at('diff', 0.1), 0.82], [at('diff', 1), 0.9], [at('build', 0.35), 1],
+  ];
+  const mx = isMobile ? 0.2 : tablet ? 0.6 : 1;
+  // Flower travel: x, y, z, scale, tilt — and its visual weight (opacity / blur) per chapter.
+  rigKF = [
+    { at: 0,                 x: 0,          y: -0.4,  z: 0,    s: 0.78, rz: 0.08, op: 1,    blur: 0 },
+    { at: at('hero', 0.6),   x: -0.2 * mx,  y: -0.1,  z: 0.25, s: 0.95, rz: 0.02, op: 1,    blur: 0 },
+    { at: at('hero', 1),     x: -0.7 * mx,  y: 0.05,  z: 0.3,  s: 1.05, rz: 0,    op: 0.9,  blur: 0 },
+    { at: at('wwd', 0.25),   x: -1.0 * mx,  y: 0.25,  z: -1.2, s: 1.2,  rz: -0.03, op: 0.4, blur: 9 },
+    { at: at('wwd', 1),      x: -0.8 * mx,  y: 0.4,   z: -1.4, s: 1.2,  rz: 0,    op: 0.38, blur: 9 },
+    { at: at('how', 0.3),    x: 0.4 * mx,   y: 0.6,   z: -2.2, s: 0.95, rz: 0.03, op: 0.28, blur: 4 },
+    { at: at('svc', 0.05),   x: -2.5 * mx,  y: 0.2,   z: -1.2, s: 0.95, rz: -0.02, op: 0.42, blur: 0 },
+    { at: at('svc', 1),      x: -2.3 * mx,  y: 0.45,  z: -1.2, s: 1.0,  rz: 0,    op: 0.48, blur: 0 },
+    { at: at('diff', 0.2),   x: -2.7 * mx,  y: 0.35,  z: -1.6, s: 1.02, rz: 0,    op: 0.32, blur: 2 },
+    { at: at('build', 0.3),  x: 0.75 * mx,  y: 0.15,  z: 0.5,  s: 1.0,  rz: 0,    op: 1,    blur: 0 },
+    { at: at('build', 1),    x: 0.75 * mx,  y: 0.35,  z: 0.75, s: 1.02, rz: 0,    op: 1,    blur: 0 },
+    { at: S.bridge.top + S.bridge.len * 0.2 + vh * 0.6, x: 0, y: 3.2, z: -1.5, s: 0.95, rz: 0, op: 0, blur: 0 },
+  ];
+}
+
+function sampleBloom(y) {
+  if (y <= bloomKF[0][0]) return bloomKF[0][1];
+  for (let i = 0; i < bloomKF.length - 1; i++) {
+    const [a, va] = bloomKF[i], [b, vb] = bloomKF[i + 1];
+    if (y < b) return lerp(va, vb, easeInOutSine(clamp01((y - a) / Math.max(1, b - a))));
+  }
+  return bloomKF[bloomKF.length - 1][1];
+}
+const R = { x: 0, y: 0, z: 0, s: 1, rz: 0, op: 1, blur: 0 };
+function sampleRig(y) {
+  let a = rigKF[0], b = rigKF[0], f = 0;
+  const lastK = rigKF[rigKF.length - 1];
+  if (y >= lastK.at) a = b = lastK;
+  else for (let i = 0; i < rigKF.length - 1; i++) {
+    if (y >= rigKF[i].at && y < rigKF[i + 1].at) { a = rigKF[i]; b = rigKF[i + 1]; f = easeInOutSine((y - a.at) / Math.max(1, b.at - a.at)); break; }
+  }
+  for (const k in R) R[k] = lerp(a[k], b[k], f);
+  return R;
+}
+
+/* =====================================================================
+   Input: vanilla smooth scroll (wheel) + cursor
+   ===================================================================== */
+let currentScroll = 0, targetScroll = 0, driving = false;
+const scrollEase = 0.075;
+if (!reduceMotion) {
+  window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) return;
+    e.preventDefault();
+    if (document.body.classList.contains('menu-open')) return;
+    const d = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * vh : e.deltaY;
+    if (!driving) currentScroll = targetScroll = window.scrollY;
+    targetScroll = Math.max(0, Math.min(maxScroll, targetScroll + d));
+    driving = true;
+  }, { passive: false });
+  window.addEventListener('scroll', () => { if (!driving) currentScroll = targetScroll = window.scrollY; }, { passive: true });
+}
+function stepScroll() {
+  if (!driving) return;
+  currentScroll += (targetScroll - currentScroll) * scrollEase;
+  if (Math.abs(targetScroll - currentScroll) < 0.4) { currentScroll = targetScroll; driving = false; }
+  window.scrollTo(0, currentScroll);
+}
+function scrollToY(y) {
+  y = Math.max(0, Math.min(maxScroll, y));
+  if (reduceMotion) { window.scrollTo(0, y); return; }
+  currentScroll = window.scrollY; targetScroll = y; driving = true;
+}
+
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const cursor = $('cursor'), cursorRing = $('cursorRing');
+const ringPos = { x: -100, y: -100 };
+if (finePointer && !reduceMotion) document.documentElement.classList.add('has-cursor');
+window.addEventListener('pointermove', (e) => {
+  if (e.pointerType !== 'mouse') return;
+  mouse.px = e.clientX; mouse.py = e.clientY;
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  mouse.active = true;
+}, { passive: true });
+document.addEventListener('pointerleave', () => { mouse.active = false; });
+document.addEventListener('pointerover', (e) => { cursorRing.classList.toggle('is-hover', !!e.target.closest('a, button, .card, .svc-card')); });
+
+/* =====================================================================
+   DOM choreography — all driven by the same scroll value
+   ===================================================================== */
+const worldBg = $('worldBg'), nav = $('nav');
+const heroCopy = $('heroCopy'), scrollCue = $('scrollCue'), bloomLabel = $('bloomLabel');
+const heroFx = [...secs.hero.querySelectorAll('.deco [data-fx]')].map((el) => ({ el, k: el.classList.contains('fg-dot') ? 0.8 : el.classList.contains('curve') ? 0.1 : 0.2 }));
+const wwdWords = [...secs.wwd.querySelectorAll('.big-words span')];
+const wwdText = [...secs.wwd.querySelectorAll('.wwd-text [data-fx]')];
+const howTitle = secs.how.querySelector('h2'), way1 = $('way1'), way2 = $('way2');
+const svcCards = [...secs.svc.querySelectorAll('.svc-card')].map((el) => ({ el, speed: parseFloat(el.dataset.speed) }));
+const svcNum = $('svcNum'), svcCount = $('svcCount');
+const rows = [...secs.diff.querySelectorAll('.t-row')];
+const buildLines = [...secs.build.querySelectorAll('h2 span')];
+const buildCopy = secs.build.querySelector('.build-foot .copy'), cta = $('cta');
+
+const BG = [   // hero yellow → warm cream paper → blush cream at the climax
+  ['#fffaf0', '#fcefc2', '#f6dc8a'],
+  ['#fbfaf7', '#f6f4f0', '#ebe5db'],
+  ['#fff8f1', '#fbeee4', '#f2d9c8'],
+].map((r) => r.map(C));
+const c1 = new THREE.Color(), c2 = new THREE.Color(), c3 = new THREE.Color();
+const last = {};
+function set(el, prop, val, id) {
+  if (last[id] === val) return;
+  last[id] = val;
+  if (prop[0] === '-') el.style.setProperty(prop, val); else el.style[prop] = val;
+}
+const prog = (k, y) => clamp01((y - S[k].top) / S[k].len);
+const tf = (x, y, s = 1, r = 0) => `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${s.toFixed(4)}) rotate(${r.toFixed(2)}deg)`;
+
+function updateDom(y, bloom) {
+  // background world
+  const f1 = smoothstep(S.hero.top + S.hero.len * 0.7, S.wwd.top + vh * 0.2, y);
+  const f2 = smoothstep(S.build.top - vh * 0.5, S.build.top + S.build.len * 0.3, y);
+  c1.lerpColors(BG[0][0], BG[1][0], f1).lerp(BG[2][0], f2);
+  c2.lerpColors(BG[0][1], BG[1][1], f1).lerp(BG[2][1], f2);
+  c3.lerpColors(BG[0][2], BG[1][2], f1).lerp(BG[2][2], f2);
+  set(worldBg, '--bg1', '#' + c1.getHexString(), 'b1'); set(worldBg, '--bg2', '#' + c2.getHexString(), 'b2'); set(worldBg, '--bg3', '#' + c3.getHexString(), 'b3');
+
+  // hero meter
+  set(document.documentElement, '--bloom', bloom.toFixed(3), 'bloomv');
+  const lab = bloom < 0.05 ? 'Wilted' : bloom < 0.35 ? 'Recovering' : bloom < 0.7 ? 'Opening' : bloom < 0.97 ? 'Almost there' : 'Full bloom';
+  if (last.lab !== lab) { bloomLabel.textContent = lab; last.lab = lab; }
+  if (reduceMotion) return;
+
+  // 01 hero: layered parallax, headline lifts from 20%, exits 80–100%
+  const hp = prog('hero', y);
+  heroFx.forEach((d, i) => set(d.el, 'transform', `translate3d(0, ${(-y * d.k).toFixed(1)}px, 0)`, 'hx' + i));
+  const lift = smoothstep(0.2, 1, hp);
+  set(heroCopy, 'transform', `translate3d(0, ${(-lift * vh * 0.3).toFixed(1)}px, 0)`, 'hc');
+  set(heroCopy, 'opacity', (1 - smoothstep(0.8, 1, hp) * 0.95).toFixed(3), 'hco');
+  set(scrollCue, 'opacity', (1 - smoothstep(0, 0.1, hp)).toFixed(3), 'cue');
+
+  // 02 what we do: Build → Launch → Scale, each with its own parallax
+  const w = prog('wwd', y);
+  wwdWords.forEach((el, i) => {
+    const e = easeOutCubic(smoothstep(0.06 + i * 0.14, 0.22 + i * 0.14, w));
+    const drift = -(w - 0.5) * vh * (0.06 + i * 0.05);
+    set(el, 'transform', tf(0, (1 - e) * 90 + drift), 'ww' + i);
+    set(el, 'opacity', e.toFixed(3), 'wo' + i);
+  });
+  wwdText.forEach((el, i) => {
+    const e = easeOutCubic(smoothstep(0.5 + i * 0.07, 0.66 + i * 0.07, w));
+    set(el, 'transform', tf(0, (1 - e) * 40), 'wt' + i);
+    set(el, 'opacity', e.toFixed(3), 'wto' + i);
+  });
+
+  // 03 how we work: cards converge from ±120px, then drift at different speeds
+  const hw = clamp01((y - (S.how.top - vh * 0.6)) / (S.how.len + vh * 0.6));
+  const ht = easeOutCubic(smoothstep(0.05, 0.3, hw));
+  set(howTitle, 'letterSpacing', `${lerp(0.02, -0.045, ht).toFixed(3)}em`, 'hts');
+  set(howTitle, 'opacity', ht.toFixed(3), 'hto');
+  const e1 = easeOutCubic(smoothstep(0.18, 0.5, hw)), e2 = easeOutCubic(smoothstep(0.24, 0.56, hw));
+  set(way1, 'transform', tf(-120 * (1 - e1), -hw * 40), 'w1'); set(way1, 'opacity', e1.toFixed(3), 'w1o');
+  set(way2, 'transform', tf(120 * (1 - e2), -hw * 90 + 40), 'w2'); set(way2, 'opacity', e2.toFixed(3), 'w2o');
+
+  // 04 services: a stack — each card rises in, earlier cards settle back into depth
+  const sp = prog('svc', y);
+  const active = clamp01((sp - 0.04) / 0.9) * (svcCards.length - 1);
+  svcCards.forEach((c, i) => {
+    const d = active - i;
+    let tx = 0, ty = 0, s = 1, r = 0, o = 1, z = 1;
+    if (d < -1) { ty = vh * 0.9; o = 0; }
+    else if (d < 0) { const e = easeOutCubic(1 + d); ty = (1 - e) * vh * 0.85; r = (1 - e) * 5; o = smoothstep(0, 0.4, e); }
+    else { const k = Math.min(d, 3); ty = -k * 22; s = 1 - k * 0.05; z = 1 - k * 0.12; }
+    ty += (0.5 - sp) * c.speed * 40;                       // per-card depth
+    set(c.el, 'transform', tf(tx, ty, s, r), 'sc' + i);
+    set(c.el, 'opacity', o.toFixed(3), 'so' + i);
+    set(c.el, 'filter', d > 0.5 ? `brightness(${z.toFixed(3)})` : 'none', 'sf' + i);
+    set(c.el, 'zIndex', String(i + 1), 'sz' + i);
+  });
+  const num = String(Math.min(svcCards.length, Math.round(active) + 1)).padStart(2, '0');
+  if (last.num !== num) { svcNum.textContent = num; last.num = num; }
+  set(svcCount, '--svc', ((active + 1) / svcCards.length).toFixed(3), 'svcp');
+
+  // 05 difference: rows reveal one by one; the new model gains emphasis
+  const dp = prog('diff', y);
+  rows.forEach((row, i) => {
+    const e = easeOutCubic(smoothstep(0.08 + i * 0.09, 0.2 + i * 0.09, dp));
+    set(row, 'transform', tf(0, (1 - e) * 26), 'r' + i);
+    set(row, 'opacity', e.toFixed(3), 'ro' + i);
+    set(row, '--lit', smoothstep(0.16 + i * 0.09, 0.3 + i * 0.09, dp).toFixed(3), 'rl' + i);
+  });
+
+  // 06 let's build: statement lines, then the CTA as the flower reaches full bloom
+  const bp = clamp01((y - (S.build.top - vh * 0.5)) / (S.build.len + vh * 0.5));
+  buildLines.forEach((el, i) => {
+    const e = easeOutCubic(smoothstep(0.08 + i * 0.1, 0.3 + i * 0.1, bp));
+    set(el, 'transform', tf((1 - e) * -60, (1 - e) * 50), 'bl' + i);
+    set(el, 'opacity', e.toFixed(3), 'blo' + i);
+  });
+  const ce = easeOutCubic(smoothstep(0.42, 0.62, bp));
+  set(buildCopy, 'opacity', ce.toFixed(3), 'bc'); set(buildCopy, 'transform', tf(0, (1 - ce) * 30), 'bct');
+  set(cta, 'opacity', ce.toFixed(3), 'cta'); set(cta, 'transform', tf(0, (1 - ce) * 40, lerp(0.94, 1, ce)), 'ctat');
+
+  // nav: glass after the hero, light over the dark footer
+  nav.classList.toggle('is-glass', y > S.hero.len * 0.8 && y < S.bridge.top - vh * 0.2);
+  const dark = y + 60 > S.bridge.top + S.bridge.len * 0.15 + vh * 0.3;
+  nav.classList.toggle('on-dark', dark);
+  cursorRing.classList.toggle('on-dark', dark);
+}
+
+/* =====================================================================
+   Single loop: scroll → story → DOM + WebGL
+   ===================================================================== */
+const clock = new THREE.Clock();
+let shownOp = -1, shownBlur = -1, displayY = 0;
+const rigRot = { x: 0, y: 0 };
+
+function frame() {
+  requestAnimationFrame(frame);
+  if (document.hidden) return;
+  stepScroll();
+  const t = clock.getElapsedTime();
+  const y = window.scrollY;
+  displayY += (y - displayY) * 0.2;                 // layers keep gliding briefly after input stops
+  if (Math.abs(y - displayY) < 0.3) displayY = y;
+
+  const bloom = reduceMotion ? 1 : sampleBloom(displayY);
+  updateDom(displayY, bloom);
+
+  // cursor
+  if (finePointer && !reduceMotion) {
+    ringPos.x += (mouse.px - ringPos.x) * 0.18; ringPos.y += (mouse.py - ringPos.y) * 0.18;
+    cursor.style.transform = `translate3d(${mouse.px}px, ${mouse.py}px, 0)`;
+    cursorRing.style.transform = `translate3d(${ringPos.x.toFixed(1)}px, ${ringPos.y.toFixed(1)}px, 0)`;
+  }
+
+  if (!webglOK) return;
+  const r = reduceMotion ? { x: 0, y: 0, z: 0, s: 1, rz: 0, op: 1, blur: 0 } : sampleRig(displayY);
+  const op = r.op, blur = isMobile ? 0 : Math.round(r.blur * 2) / 2;
+  if (Math.abs(op - shownOp) > 0.003) { canvas.style.opacity = op.toFixed(3); shownOp = op; }
+  if (blur !== shownBlur) { canvas.style.filter = blur ? `blur(${blur}px)` : 'none'; shownBlur = blur; }
+  if (op < 0.003) return;
+
+  mouse.sx += ((mouse.active ? mouse.x : 0) - mouse.sx) * 0.05;
+  mouse.sy += ((mouse.active ? mouse.y : 0) - mouse.sy) * 0.05;
+  let target = 0;
+  if (mouse.active) {
+    headScreen.copy(headWorld).project(camera);
+    const dx = (mouse.x - headScreen.x) * camera.aspect, dy = mouse.y - headScreen.y;
+    target = Math.max(-1, Math.min(1, dx)) * (1 - smoothstep(0.15, 0.9, Math.hypot(dx, dy))) * 0.09;
+  }
+  swayX += (target - swayX) * 0.05;
+
+  const easedBloom = updateFlower(bloom, t);
+  const base = rig.userData.base;
+  rig.position.set(rigBase.x + r.x, rigBase.y + r.y * base, rigBase.z + r.z);
+  rig.scale.setScalar(base * r.s);
+  const tY = reduceMotion ? 0 : mouse.sx * 0.04, tX = reduceMotion ? 0 : -mouse.sy * 0.025;
+  rigRot.y += (tY - rigRot.y) * 0.06; rigRot.x += (tX - rigRot.x) * 0.06;
+  rig.rotation.set(rigRot.x, rigRot.y, r.rz);
+
+  const camP = easeInOutSine(smoothstep(0, 0.6, bloom));
+  camera.position.lerpVectors(camA, camB, camP);
+  camTarget.lerpVectors(tgtA, tgtB, camP);
+  camera.lookAt(camTarget);
+
+  scene.updateMatrixWorld();
+  head.getWorldPosition(headWorld);
+  backLight.position.set(headWorld.x + 0.3, headWorld.y + 0.4, headWorld.z - 1.6);
+  backLight.intensity = lerp(0, 7, smoothstep(0.55, 1, bloom));
+  glow.position.set(headWorld.x, headWorld.y + 0.1, headWorld.z - 1.4);
+  glow.scale.setScalar(lerp(3.2, 5.6, easedBloom) * rig.scale.x);
+  glow.material.opacity = 0.55 * smoothstep(0.6, 1, bloom);
+  const idle = reduceMotion ? 0 : 1, spread = lerp(0.55, 1, easedBloom) * rig.scale.x;
+  for (let k = 0; k < POLLEN; k++) {
+    const b = k * 4, ph = pollenBase[b + 3];
+    pollenPos[k * 3] = headWorld.x + pollenBase[b] * spread + Math.sin(t * 0.3 + ph) * 0.08 * idle;
+    pollenPos[k * 3 + 1] = headWorld.y + pollenBase[b + 1] * spread + Math.sin(t * 0.22 + ph * 1.7) * 0.12 * idle;
+    pollenPos[k * 3 + 2] = headWorld.z + pollenBase[b + 2] * spread + Math.cos(t * 0.27 + ph) * 0.08 * idle;
+  }
+  pollenGeo.attributes.position.needsUpdate = true;
+  pollenMat.opacity = 0.9 * smoothstep(0.75, 1, bloom);
+  renderer.render(scene, camera);
+}
+
+/* =====================================================================
+   Navigation, menu, boot
+   ===================================================================== */
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    setMenu(false);
+    const k = Object.keys(secs).find((key) => secs[key] === el);
+    const y = id === 'top' ? 0 : k === 'build' ? S.build.top + S.build.len * 0.6 : k === 'wwd' || k === 'how' || k === 'diff' ? S[k].top + S[k].len * 0.7 : pageY(el);
+    scrollToY(y);
+  });
+});
+const menuBtn = $('menuBtn'), menu = $('menu');
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.textContent = open ? 'Close' : 'Menu';
+  menu.setAttribute('aria-hidden', String(!open));
+}
+menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+if (renderer) {
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.setClearColor(0x000000, 0);
+} else {
+  canvas.style.display = 'none';
+}
+layout();
+window.addEventListener('resize', layout);
+window.addEventListener('load', layout);
+if (document.fonts) document.fonts.ready.then(layout);
+requestAnimationFrame(() => document.body.classList.add('is-ready'));
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
