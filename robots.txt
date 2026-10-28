@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /logo-files/
+
+Sitemap: https://locabrands.com/sitemap.xml

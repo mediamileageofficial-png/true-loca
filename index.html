@@ -3,13 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LOCA BRANDS — Independent Brand Building Studio</title>
-<meta name="description" content="LOCA BRANDS is a senior-led brand building studio. We build the founder, the brand and the demand engine — helping consumer brands build, launch, evolve and scale as one integrated system.">
+<title>LOCA BRANDS, Growth &amp; Venture Partners for Consumer Businesses</title>
+<meta name="description" content="LOCA BRANDS works with consumer businesses when they are ready to build, transform and accelerate. We build the brand, the strategy and the demand engine, and the systems that help them grow.">
 <meta name="theme-color" content="#f6f4f0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2212%22 fill=%22%23ff1010%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://locabrands.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LOCA BRANDS">
+<meta property="og:title" content="LOCA BRANDS, Growth &amp; Venture Partners for Consumer Businesses">
+<meta property="og:description" content="LOCA BRANDS works with consumer businesses when they are ready to build, transform and accelerate. Consumer intelligence, GTM, product, brand, D2C, commerce and growth.">
+<meta property="og:url" content="https://locabrands.com/">
+<meta property="og:image" content="https://locabrands.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LOCA BRANDS, Growth &amp; Venture Partners for Consumer Businesses">
+<meta name="twitter:description" content="LOCA BRANDS works with consumer businesses when they are ready to build, transform and accelerate. Consumer intelligence, GTM, product, brand, D2C, commerce and growth.">
+<meta name="twitter:image" content="https://locabrands.com/assets/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LOCA BRANDS",
+  "url": "https://locabrands.com/",
+  "logo": "https://locabrands.com/assets/logo-square.png",
+  "image": "https://locabrands.com/assets/og-image.png",
+  "description": "Growth & Venture Partners for consumer businesses. We build the brand, the strategy and the demand engine, across consumer intelligence, GTM, product, brand, D2C, commerce and growth.",
+  "email": "Pranav@locabrands.com",
+  "telephone": "+91-97865-64820",
+  "areaServed": "IN",
+  "contactPoint": [{ "@type": "ContactPoint", "contactType": "sales", "email": "Pranav@locabrands.com", "telephone": "+91-97865-64820", "availableLanguage": ["English", "Tamil", "Hindi"] }]
+}
+</script>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700;9..40,800&family=JetBrains+Mono:wght@500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700;9..40,800&family=Rye&family=JetBrains+Mono:wght@500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -38,6 +67,8 @@
   .label { margin: 0; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
   .label::before { content: ""; display: inline-block; width: 0.45rem; height: 0.45rem; margin-right: 0.7rem; border-radius: 50%; background: var(--red); vertical-align: 0.08em; }
   .display { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.045em; line-height: 0.9; }
+  /* body paragraphs: justified (last line left); words are never split with hyphens */
+  .copy, .hero-sub, .svc-card .body p, .objective p, .proof-note { text-align: justify; text-align-last: left; hyphens: manual; -webkit-hyphens: manual; }
   .copy { margin: 0; font-size: clamp(0.98rem, 1.15vw, 1.1rem); line-height: 1.7; color: var(--muted); }
 
   /* ---------- Fixed world: background (z -1), grain, WebGL flower (z 0) ---------- */
@@ -45,7 +76,6 @@
   .grain { position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0.045;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   #gl { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
-
   /* ---------- Custom cursor (desktop only) ---------- */
   .cursor, .cursor-ring { position: fixed; left: 0; top: 0; z-index: 70; pointer-events: none; border-radius: 50%; display: none; }
   .cursor { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--red); }
@@ -61,8 +91,13 @@
   .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.3rem var(--gutter); transition: color 0.4s, background 0.4s; }
   .nav.is-glass { background: rgba(246,244,240,0.62); backdrop-filter: blur(14px) saturate(1.3); -webkit-backdrop-filter: blur(14px) saturate(1.3); }
   .nav.on-dark { color: var(--paper); background: rgba(9,9,9,0.4); }
-  .logo { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.06em; }
-  .logo span { color: var(--red); }
+  .logo { display: inline-flex; align-items: center; }
+  /* logo: the LOCA BRANDS mark used as a mask, filled with brand maroon (cream over the dark footer / open menu) */
+  .logo-pill { display: inline-flex; align-items: center; transition: transform 0.5s var(--ease); }
+  .logo-mark { display: block; height: 3.4rem; aspect-ratio: 444 / 221; background: #570e0e; -webkit-mask: url("assets/logo.png") center / contain no-repeat; mask: url("assets/logo.png") center / contain no-repeat; transition: background 0.4s; }
+  .nav.on-dark .logo-mark, .menu-open .logo-mark { background: var(--paper); }
+  .logo:hover .logo-pill { transform: translateY(-1px) scale(1.04); }
+  @media (max-width: 767px) { .logo-mark { height: 2.8rem; } }
   .nav-links { display: flex; gap: clamp(1.2rem, 2.6vw, 2.6rem); font-size: 0.82rem; font-weight: 600; }
   .nav-links a, .nav-cta { position: relative; }
   .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1.5px; background: var(--red); transform: scaleX(0); transform-origin: right; transition: transform 0.5s var(--ease); }
@@ -86,7 +121,7 @@
 
   /* ---------- 01 Hero ---------- */
   .hero { height: 230vh; }
-  .hero .stage { display: flex; align-items: center; padding: 6rem var(--gutter) 3rem; }
+  .hero .stage { display: flex; align-items: center; padding: 7.4rem var(--gutter) 2.4rem; }
   .deco { position: absolute; inset: 0; pointer-events: none; }
   .deco svg { position: absolute; overflow: visible; }
   .ring-a { width: min(62vw, 58rem); right: -12vw; top: 6vh; }
@@ -94,7 +129,7 @@
   .curve { width: 60vw; left: -8vw; bottom: -4vh; }
   .fg-dot { position: absolute; border-radius: 50%; background: var(--red); }
   .hero-copy { position: relative; max-width: 44rem; }
-  .hero h1 { margin: 1.4rem 0 1.8rem; font-size: clamp(2.9rem, 6.6vw, 6.8rem); }
+  .hero h1 { margin: 1.2rem 0 1.4rem; font-size: clamp(2.6rem, min(6.6vw, 9vh), 6.8rem); }
   .hero h1 .l { display: block; }
   .hero h1 .thin { font-weight: 500; font-size: 0.62em; letter-spacing: -0.03em; }
   /* hover: each headline word is re-"written" left→right over its faint outline */
@@ -113,7 +148,16 @@
   .hero-note { margin-top: 1rem; max-width: 30rem; }
   .hero-intro { opacity: 0; transform: translateY(36px); filter: blur(8px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease); transition-delay: var(--d, 0s); }
   .is-ready .hero-intro { opacity: 1; transform: none; filter: none; }
-  .scroll-cue { position: absolute; right: var(--gutter); bottom: clamp(2rem, 7vh, 4rem); display: flex; align-items: center; gap: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; }
+  .scroll-cue { position: absolute; right: calc(var(--gutter) + 4.6rem); bottom: clamp(2rem, 7vh, 4rem); display: flex; align-items: center; gap: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; }
+  /* floating WhatsApp chat button (always reachable; sits under the open menu) */
+  .wa-btn { position: fixed; right: max(1.2rem, env(safe-area-inset-right)); bottom: max(1.2rem, env(safe-area-inset-bottom)); z-index: 45; display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: #25d366; color: #fff; box-shadow: 0 12px 30px -8px rgba(18,140,70,0.55), 0 2px 6px rgba(0,0,0,0.12); transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+  .wa-btn svg { width: 1.9rem; height: 1.9rem; }
+  .wa-btn::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25d366; z-index: -1; animation: waPulse 2.6s ease-out infinite; }
+  .wa-btn:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 16px 36px -8px rgba(18,140,70,0.65), 0 2px 6px rgba(0,0,0,0.12); }
+  .wa-tip { position: absolute; right: calc(100% + 0.7rem); top: 50%; padding: 0.45rem 0.8rem; border-radius: 999px; background: var(--black); color: var(--paper); font-size: 0.78rem; font-weight: 700; white-space: nowrap; opacity: 0; transform: translate(6px, -50%); pointer-events: none; transition: opacity 0.3s, transform 0.4s var(--ease); }
+  .wa-btn:hover .wa-tip, .wa-btn:focus-visible .wa-tip { opacity: 1; transform: translate(0, -50%); }
+  @keyframes waPulse { 0% { transform: scale(1); opacity: 0.55; } 70%, 100% { transform: scale(1.7); opacity: 0; } }
+  @media (max-width: 767px) { .wa-btn { width: 3.2rem; height: 3.2rem; } .wa-btn svg { width: 1.75rem; height: 1.75rem; } .wa-tip { display: none; } }
   .scroll-cue svg { width: 0.9rem; height: 1.6rem; animation: bob 2.2s var(--ease) infinite; }
   @keyframes bob { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(7px); opacity: 1; } }
   .bloom-meter { position: absolute; left: var(--gutter); bottom: clamp(2rem, 7vh, 4rem); display: flex; align-items: center; gap: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
@@ -124,49 +168,79 @@
   .wwd { height: 280vh; }
   .wwd .stage { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 4vw; padding: 6rem var(--gutter) 3rem; }
   .wwd .label { position: absolute; top: clamp(6rem, 13vh, 8rem); left: var(--gutter); }
-  .big-words { font-size: clamp(3.6rem, 12vw, 12.5rem); }
+  .big-words { font-size: clamp(2.6rem, 7.5vw, 9.5rem); }
   .big-words span { display: block; }
   .big-words span:nth-child(2) { padding-left: 0.5em; }
   .big-words span:nth-child(3) { padding-left: 1em; color: var(--red); }
   .wwd-text { display: grid; gap: 1.2rem; max-width: 34rem; }
   .statement { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.3rem, 2.1vw, 2rem); line-height: 1.25; letter-spacing: -0.02em; }
+  .wwd-text .copy b { color: var(--black); }
+  .mantra { margin: 0.4rem 0 0; display: grid; gap: 0.15rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1rem, 1.3vw, 1.2rem); letter-spacing: -0.01em; }
+  .mantra span:last-child { color: var(--red); }
 
-  /* ---------- 03 How we work ---------- */
-  .how { height: 230vh; }
-  .how .stage { display: flex; flex-direction: column; justify-content: center; gap: clamp(2rem, 5vh, 3.5rem); padding: 6.5rem var(--gutter) 3rem; }
-  .how-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; }
-  .how h2 { font-size: clamp(3.2rem, 9vw, 9rem); }
-  .how h2 span { display: block; }
-  .way-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2vw, 2rem); }
-  .card { position: relative; padding: clamp(1.6rem, 2.6vw, 2.6rem); border-radius: 1.6rem; background: rgba(255,255,255,0.72); border: 1px solid rgba(9,9,9,0.08); box-shadow: 0 30px 70px rgba(74,13,18,0.08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: box-shadow 0.5s var(--ease), border-color 0.5s; }
-  .card:hover { border-color: rgba(255,16,16,0.35); box-shadow: 0 40px 90px rgba(74,13,18,0.14); }
-  .card-lift { transition: transform 0.5s var(--ease); }
-  .card:hover .card-lift { transform: translateY(-6px); }
-  .way-num { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 0.9rem; color: var(--red); }
-  .card h3 { margin: 1.4rem 0 1rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2.3rem); letter-spacing: -0.035em; line-height: 1.05; }
-  .card p + p { margin-top: 0.8rem; }
+  /* ---------- 07 Long-term partnerships (plain section, reveals on entry) ---------- */
+  .p-rev { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1.1s var(--ease); transition-delay: var(--d, 0s); }
+  /* Track record strip */
+  .proof { position: relative; width: 100%; max-width: calc(62rem + 2 * var(--gutter)); padding: clamp(3rem, 8vh, 5rem) var(--gutter); }
+  .proof-inner { max-width: 62rem; padding: clamp(1.8rem, 3vw, 3rem); border-radius: 1.8rem; background: rgba(250,246,240,0.92); border: 1px solid rgba(9,9,9,0.08); box-shadow: 0 30px 70px rgba(74,13,18,0.08); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .stat { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.1rem; }
+  .stat + .stat { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+  .stat b { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(3.2rem, 6.5vw, 5.6rem); line-height: 0.95; letter-spacing: -0.05em; color: var(--red); font-variant-numeric: tabular-nums; }
+  .stat span { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.4rem); color: var(--red); }
+  .stat p { flex-basis: 100%; margin: 0.6rem 0 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); }
+  .proof-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2rem 0 0; padding: 1.6rem 0 0; border-top: 1px solid var(--line); list-style: none; }
+  .proof-tags li { padding: 0.45rem 0.95rem; border-radius: 999px; border: 1px solid rgba(84,9,9,0.25); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); transition: background 0.3s, color 0.3s; }
+  .proof-tags li:hover { background: var(--red); color: var(--paper); }
+  .proof-note { margin: 1.2rem 0 0; font-size: 0.92rem; color: var(--muted); }
+  .proof.is-in .p-rev { opacity: 1; transform: none; }
 
-  /* ---------- 04 Services: pinned card stack ---------- */
-  .svc { height: 620vh; }
-  .svc .stage { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4vw; align-items: center; padding: 6.5rem var(--gutter) 3rem; }
+  /* ---------- 03 How we work + 04 Services: pinned card stacks ---------- */
+  .how { height: 280vh; }
+  .svc { height: 660vh; }
+  .how .stage, .svc .stage { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4vw; align-items: center; padding: 6.5rem var(--gutter) 3rem; }
+  .svc-card .svc-tag { margin: 0 0 1.15rem; max-width: 34rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.45; letter-spacing: 0; word-spacing: 0.04em; color: var(--black); }
+  .svc-card .body p { margin: 0 0 1rem; max-width: 36rem; font-size: 0.95rem; line-height: 1.75; letter-spacing: 0.005em; color: var(--muted); }
+  .svc-card .body b { color: var(--black); }
+  .svc-card h3.sm { font-size: clamp(1.7rem, 2.9vw, 2.9rem); }
+  .objective { margin-top: auto; padding: 1.2rem 1.4rem; border-left: 3px solid var(--red); border-radius: 0 0.8rem 0.8rem 0; background: rgba(84,9,9,0.05); }
+  .objective small { display: block; margin-bottom: 0.35rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); }
+  .objective p { margin: 0 0 0.25rem; font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
+  .objective strong { display: block; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.02rem; letter-spacing: -0.01em; color: var(--black); }
+  .svc-card .areas { column-gap: 1.6rem; margin-top: 0.6rem; font-size: inherit; font-weight: 400; }
+  .svc-card .areas li { display: grid; gap: 0.3rem; margin-bottom: 1.05rem; }
+  .svc-card .areas li::before { display: none; }
+  .areas b { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; }
+  .areas b::before { content: ""; display: inline-block; width: 0.4rem; height: 0.4rem; margin-right: 0.5rem; border-radius: 50%; background: var(--red); vertical-align: 0.12em; }
+  .areas span { font-size: 0.84rem; line-height: 1.55; color: var(--muted); }
+  @media (max-height: 760px) and (min-width: 768px) {
+    .svc-card { padding: 1.4rem 1.6rem; }
+    .svc-card .body p, .objective p { font-size: 0.86rem; }
+    .svc-card ul { font-size: 0.84rem; }
+    .areas span { font-size: 0.78rem; }
+  }
   .svc-head h2 { margin: 1.4rem 0 1.4rem; font-size: clamp(3.2rem, 8.5vw, 8.6rem); }
   .svc-head h2 span { display: block; }
   .svc-count { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; font-family: "DM Sans", sans-serif; font-weight: 700; font-variant-numeric: tabular-nums; }
   .svc-count b { font-size: 2.4rem; letter-spacing: -0.04em; }
   .svc-count i { position: relative; flex: 0 0 8rem; height: 2px; background: var(--line); }
   .svc-count i::after { content: ""; position: absolute; inset: 0; background: var(--red); transform-origin: left; transform: scaleX(var(--svc, 0)); }
-  .svc-stack { position: relative; height: min(40rem, calc(100svh - 10rem)); }
+  .svc-stack { position: relative; height: min(34rem, calc(100svh - 10rem)); }
+  .how .svc-stack { height: min(38rem, calc(100svh - 10rem)); }
+  .svc .svc-stack { height: min(40rem, calc(100svh - 10rem)); }
   .svc-card { position: absolute; inset: 0; display: flex; flex-direction: column; padding: clamp(1.6rem, 2.6vw, 2.8rem); border-radius: 1.8rem; background: #fff; border: 1px solid rgba(9,9,9,0.1); box-shadow: 0 40px 90px rgba(74,13,18,0.12); transform-origin: 50% 0%; overflow: hidden; transition: border-color 0.4s; }
   .svc-card:hover { border-color: rgba(255,16,16,0.45); }
   .svc-card:nth-child(even) { background: #fffdf8; }
   .svc-card::after { content: attr(data-n); position: absolute; right: 1.6rem; bottom: -1.5rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(7rem, 12vw, 11rem); letter-spacing: -0.06em; color: rgba(9,9,9,0.04); pointer-events: none; }
   .svc-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
   .svc-top b { color: var(--red); }
-  .svc-card h3 { margin: 1.4rem 0 0.8rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 4.2rem); text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.92; }
+  .svc-card h3 { margin: 1.6rem 0 1rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 4.2rem); text-transform: uppercase; letter-spacing: -0.015em; word-spacing: 0.14em; line-height: 1.04; }
   .svc-card > p { max-width: 30rem; font-size: 1.02rem; line-height: 1.55; color: var(--muted); }
-  .svc-card ul { list-style: none; margin: auto 0 0; padding: 1.4rem 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1.5rem; font-size: 0.92rem; font-weight: 600; }
-  .svc-card li { display: flex; gap: 0.6rem; line-height: 1.35; }
-  .svc-card li::before { content: ""; flex: 0 0 0.35rem; height: 0.35rem; margin-top: 0.45em; border-radius: 50%; background: var(--red); }
+  /* two-column lists flow top-to-bottom (columns, not a grid), so a wrapped item never opens a gap beside it */
+  .svc-card ul { list-style: none; margin: 1.8rem 0 0; padding: 1.6rem 0 0; border-top: 1px solid var(--line); columns: 2; column-gap: 2.2rem; font-size: 0.92rem; font-weight: 600; }
+  .svc-card ul + .objective { margin-top: 1.8rem; }
+  .svc-card li { position: relative; display: block; padding-left: 1.05rem; line-height: 1.5; margin-bottom: 0.85rem; break-inside: avoid; -webkit-column-break-inside: avoid; page-break-inside: avoid; }
+  .svc-card li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.35rem; height: 0.35rem; border-radius: 50%; background: var(--red); }
 
   /* ---------- 05 Difference ---------- */
   .diff { height: 260vh; }
@@ -181,6 +255,9 @@
   .t-old { font-size: 0.98rem; color: var(--muted); }
   .t-arrow { color: var(--red); font-weight: 700; text-align: center; }
   .t-new { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: clamp(1.02rem, 1.4vw, 1.3rem); letter-spacing: -0.02em; }
+  .steps .t-old { font-size: 0.9rem; line-height: 1.45; }
+  .steps .t-old b { display: block; margin-bottom: 0.25rem; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); }
+  .steps .t-row { padding: clamp(0.7rem, 1.6vh, 1rem) 0; }
   .t-row::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1.5px; width: 100%; background: var(--red); transform-origin: left; transform: scaleX(var(--lit, 0)); }
 
   /* ---------- 06 Let's build ---------- */
@@ -190,30 +267,46 @@
   .build h2 span { display: block; }
   .build h2 span:nth-child(2) { padding-left: 0.6em; }
   .build h2 span:nth-child(3) { padding-left: 1.2em; color: var(--red); }
-  .build-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; max-width: 60rem; }
+  .build-foot { display: flex; align-items: center; justify-content: space-between; gap: 2rem; max-width: 70rem; }
   .build-foot .copy { max-width: 28rem; color: var(--black); font-weight: 500; }
-  .cta { display: inline-flex; align-items: center; gap: 0.9rem; padding: 1.25rem 2rem; border-radius: 999px; background: var(--red); color: #fff; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 20px 50px rgba(255,16,16,0.3); transition: background 0.3s, box-shadow 0.4s var(--ease); }
+  /* closing call to action: Start a Conversation */
+  .build-cta { display: flex; align-items: center; gap: 1.2rem 1.6rem; flex-wrap: nowrap; }
+  @media (max-width: 767px) { .build-cta { flex-wrap: wrap; } }
+  .cta { display: inline-flex; align-items: center; gap: 0.9rem; padding: 1.25rem 2rem; border-radius: 999px; background: var(--red); color: #fff; font-weight: 800; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 20px 50px rgba(84,9,9,0.3); transition: background 0.3s, box-shadow 0.4s var(--ease); }
   .cta:hover { background: var(--black); box-shadow: 0 20px 50px rgba(9,9,9,0.25); }
 
   /* ---------- Bridge: cream → warm red → dark burgundy → black ---------- */
-  .bridge { position: relative; z-index: 10; height: 90vh; background: linear-gradient(180deg, rgba(246,244,240,0) 0%, rgba(255,16,16,0.55) 30%, #4a0d12 62%, #090909 100%); }
+  .bridge { position: relative; z-index: 10; min-height: 90vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(180deg, rgba(246,244,240,0) 0%, rgba(255,16,16,0.55) 30%, #4a0d12 62%, #090909 100%); }
+  /* butterfly: perches on the flower stem under the bloom; takes off and flutters while you scroll (driven from the WebGL loop) */
+  #bfly { position: fixed; left: 0; top: 0; z-index: 5; pointer-events: none; opacity: 0; will-change: transform, opacity; }
+  #bfly .bfly-wing { --w: 84px; width: var(--w); height: calc(var(--w) * 158 / 165); margin: calc(var(--w) * -0.55) 0 0 calc(var(--w) * -0.5); background: url("assets/butterfly-flap.webp") 0 0 / calc(var(--w) * 64) 100% no-repeat; filter: drop-shadow(0 8px 8px rgba(40,0,0,0.25)); }
+  @media (max-width: 767px) { #bfly .bfly-wing { --w: 62px; } }
 
   /* ---------- Footer ---------- */
   .footer { background: var(--black); color: var(--paper); padding-top: 1.6rem; }
-  /* welcome strip: yellow scalloped band with a "To Loca Brands" marquee */
+  /* yellow client-logo marquee: logos recoloured to the brand maroon (--red), sized by --k (√ of aspect) so each reads at a similar visual weight */
   .welcome { position: relative; padding: clamp(1.8rem, 4vh, 2.6rem) 0 clamp(2.6rem, 5vh, 3.4rem); background: var(--yellow); color: var(--red); }
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .welcome-track { display: flex; width: max-content; animation: ticker 30s linear infinite; }
+  .welcome-track { display: flex; width: max-content; animation: ticker 45s linear infinite; }
   .welcome:hover .welcome-track { animation-play-state: paused; }
-  .welcome-group { display: flex; align-items: center; flex-shrink: 0; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(2.2rem, 5.5vw, 4.6rem); line-height: 1; letter-spacing: -0.03em; text-transform: uppercase; white-space: nowrap; }
-  .welcome-group span { padding: 0 0.45em; }
-  .welcome-group span.o { color: transparent; -webkit-text-stroke: 1.5px var(--red); }
-  .welcome-group i { font-style: normal; font-size: 0.55em; display: inline-block; animation: tickerSpin 6s linear infinite; }
-  .welcome::before { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 14px; background: radial-gradient(circle at 14px 14px, var(--yellow) 12.5px, transparent 13.5px) 0 0 / 28px 28px repeat-x; animation: scallop 3.5s linear infinite reverse; }
+  .welcome-group { display: flex; align-items: center; flex-shrink: 0; gap: clamp(2.4rem, 5vw, 4.5rem); padding-right: clamp(2.4rem, 5vw, 4.5rem); }
+  .welcome-group img { display: block; flex: 0 0 auto; width: auto; height: calc(var(--k, 1) * clamp(3.6rem, 6vw, 5.4rem)); }
+  /* "Many tongues" band: outline statement row (←) over the name in Indian scripts (→) */
+  .tongues { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--red) 0%, var(--burgundy) 100%); color: var(--paper); border-block: 1px solid rgba(248,224,142,0.18); }
+  .tongues-row { display: flex; width: max-content; animation: ticker 46s linear infinite; }
+  .tongues-row.rev { animation-direction: reverse; animation-duration: 40s; }
+  .tongues:hover .tongues-row { animation-play-state: paused; }
+  .tongues-a { border-bottom: 1px solid rgba(248,224,142,0.16); }
+  .tongues-a .tg { display: flex; align-items: center; flex-shrink: 0; padding: clamp(0.6rem, 1.6vh, 1rem) 0; font-family: "Rye", serif; font-weight: 400; font-size: clamp(2.2rem, 5.6vw, 5rem); line-height: 1.15; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; }
+  .tongues-a .ol { padding: 0 0.3em; color: rgba(246,244,240,0.88); }
+  .tongues-a .bx { margin-left: -0.15em; padding: 0.04em 0.18em; border: 2px solid rgba(248,224,142,0.55); color: var(--yellow); transition: background 0.4s, color 0.4s, border-color 0.4s; }
+  .tongues:hover .tongues-a .bx { background: var(--yellow); color: var(--red); border-color: var(--yellow); }
+  .tongues-a svg { flex: 0 0 auto; width: 0.62em; height: 0.62em; margin: 0 0.35em; color: var(--yellow); animation: tickerSpin 9s linear infinite; }
+  .tongues-b .tg { display: flex; align-items: center; flex-shrink: 0; padding: clamp(1rem, 2.4vh, 1.5rem) 0; font-family: "DM Sans", "Nirmala UI", "Noto Sans", "Noto Sans Tamil", "Noto Sans Devanagari", sans-serif; font-weight: 700; font-size: clamp(1.25rem, 2.2vw, 2rem); line-height: 1.2; white-space: nowrap; }
+  .tongues-b span { padding: 0 1.1em; }
+  .tongues-b span:nth-child(4n + 3) { color: var(--yellow); }
+  .tongues-b i { width: 0.42rem; height: 0.42rem; border-radius: 50%; background: rgba(248,224,142,0.45); }
   .footer-band { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 2rem 3rem; flex-wrap: wrap; padding: clamp(2.8rem, 6vh, 4rem) var(--gutter) clamp(2.4rem, 5vh, 3.4rem); background: var(--red); }
-  /* scalloped top edge, drifting sideways */
-  .footer-band::before { content: ""; position: absolute; left: 0; right: 0; top: -13px; height: 14px; background: radial-gradient(circle at 14px 14px, var(--red) 12.5px, transparent 13.5px) 0 0 / 28px 28px repeat-x; animation: scallop 3.5s linear infinite; }
-  @keyframes scallop { to { background-position-x: 28px; } }
   .footer-tag { margin: 0; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1.15rem, 1.7vw, 1.55rem); letter-spacing: -0.01em; text-transform: uppercase; }
   .footer-tag em { font-family: "Playfair Display", serif; font-weight: 500; text-transform: none; color: var(--yellow); letter-spacing: 0; }
   .footer-tag .star { display: inline-block; margin-left: 0.3em; font-style: normal; color: var(--yellow); animation: tickerSpin 6s linear infinite; }
@@ -234,75 +327,114 @@
   .f-rev { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
   .footer.is-in .f-rev { opacity: 1; transform: none; }
 
+  /* ---------- Small landscape tablets (iPad landscape): two columns, tighter Why Loca steps ---------- */
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .diff .stage { grid-template-columns: 0.7fr 1.3fr; }
+    .diff h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+    .steps .t-row { padding: 0.55rem 0; }
+    .steps .t-old { font-size: 0.82rem; line-height: 1.38; }
+    .steps .t-old b { font-size: 0.86rem; }
+    .steps .t-new { font-size: 1rem; }
+  }
   /* ---------- Tablet ---------- */
-  @media (max-width: 1024px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
-    .wwd .stage, .svc .stage, .diff .stage { grid-template-columns: 1fr; align-content: center; gap: 2rem; }
+    .wwd .stage, .how .stage, .svc .stage, .diff .stage { grid-template-columns: 1fr; align-content: center; gap: 2rem; }
     .svc-head h2 { font-size: clamp(2.6rem, 8vw, 5rem); margin: 0.8rem 0; }
     .svc-head .copy { display: none; }
     .svc-count { margin-top: 0.6rem; }
-    .svc-stack { height: min(38rem, calc(100svh - 17rem)); }
+    .svc-stack, .how .svc-stack, .svc .svc-stack { height: min(36rem, calc(100svh - 17rem)); }
   }
-  /* ---------- Ticker strip (between hero and 02) ---------- */
-  .ticker { position: relative; z-index: 10; overflow: hidden; transform-origin: 50% 50%; will-change: transform; backface-visibility: hidden; background: var(--red); color: var(--paper); border-block: 1px solid var(--burgundy); box-shadow: 0 18px 40px -24px rgba(84,9,9,0.55); }
-  .ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 6rem; z-index: 1; pointer-events: none; }
-  .ticker::before { left: 0; background: linear-gradient(90deg, var(--red), transparent); }
-  .ticker::after { right: 0; background: linear-gradient(-90deg, var(--red), transparent); }
-  .ticker-track { display: flex; width: max-content; animation: ticker 38s linear infinite; }
-  .ticker:hover .ticker-track { animation-play-state: paused; }
-  .ticker-group { display: flex; align-items: center; flex-shrink: 0; padding: 1.05rem 0; font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(0.95rem, 1.35vw, 1.3rem); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
-  .ticker-group > span { padding: 0 1.1rem; }
-  .ticker-group .star { padding: 0; color: var(--yellow); display: inline-block; animation: tickerSpin 6s linear infinite; }
-  .ticker-group .box { display: inline-block; margin-left: 0.35em; padding: 0.05em 0.35em; border: 2px solid var(--yellow); color: var(--yellow); animation: tickerPulse 2.4s var(--ease) infinite; }
-  .ticker-group .it { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--yellow); font-size: 1.12em; }
   @keyframes ticker { to { transform: translateX(-50%); } }
   @keyframes tickerSpin { to { transform: rotate(360deg); } }
-  @keyframes tickerPulse { 0%, 100% { background: transparent; color: var(--yellow); } 50% { background: var(--yellow); color: var(--red); } }
 
   /* ---------- Mobile ---------- */
   @media (max-width: 767px) {
-    .ticker-track { animation-duration: 26s; }
-    .ticker::before, .ticker::after { width: 2.5rem; }
     .nav-cta { display: none; }
     .nav-menu { display: block; }
-    .hero .stage { align-items: flex-start; padding-top: 6.5rem; }
+    .hero .stage { align-items: flex-start; padding-top: 7rem; }
     .hero h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); margin: 1rem 0 1rem; }
     .hero-sub { font-size: 0.98rem; }
     .hero-note { display: none; }
     .ring-a { width: 120vw; right: -50vw; top: 40vh; }
-    .ring-b, .scroll-cue { display: none; }
-    .wwd .label, .svc .label { position: static; }
+    .ring-b, .scroll-cue, .fg-dot { display: none; }
+    .wwd .label, .svc .label, .how .label { position: static; }
     .wwd .stage { align-content: center; }
-    .big-words { font-size: clamp(3.2rem, 17vw, 5rem); }
+    .big-words { font-size: clamp(2.4rem, 12vw, 4rem); }
     .statement { font-size: 1.15rem; }
     .wwd-text .copy { font-size: 0.92rem; }
-    .wwd-text .copy.extra { display: none; }
-    .how-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .how-head .copy { display: none; }
-    .way-grid { grid-template-columns: 1fr; gap: 0.9rem; }
-    .card { padding: 1.3rem; border-radius: 1.2rem; }
-    .card h3 { margin: 0.7rem 0 0.5rem; font-size: 1.35rem; }
-    .card .copy { font-size: 0.88rem; line-height: 1.55; }
-    .card p + p { display: none; }
+    .wwd-text .copy.extra, .mantra { display: none; }
+    .svc-card h3.sm { font-size: 1.45rem; }
+    .svc-card .svc-tag { font-size: 1rem; margin-bottom: 0.5rem; }
+    .svc-card .body p { font-size: 0.82rem; line-height: 1.45; margin-bottom: 0.4rem; }
+    .objective { padding: 0.7rem 0.9rem; }
+    .objective p { font-size: 0.8rem; }
+    .objective strong { font-size: 0.9rem; }
+    .svc-card .areas { column-gap: 0.9rem; padding-top: 0.8rem; }
+    .svc-card .areas li { margin-bottom: 0.55rem; }
+    .areas b { font-size: 0.84rem; }
+    .areas span { font-size: 0.72rem; line-height: 1.35; }
+    .proof-stats { grid-template-columns: 1fr; gap: 1.1rem; }
+    .stat + .stat { padding-left: 0; border-left: 0; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+    .proof-inner { padding: 1.5rem; }
+    .build h2 { font-size: 10vw; }
     .svc-count { display: none; }
-    .svc-stack { height: calc(100svh - 13rem); }
+    .svc-stack, .svc .svc-stack { height: calc(100svh - 13rem); }
+    .how .svc-stack { height: min(33rem, calc(100svh - 13rem)); }
     .svc-card { padding: 1.3rem; border-radius: 1.3rem; }
     .svc-card h3 { font-size: 2rem; margin: 0.9rem 0 0.5rem; }
     .svc-card > p { font-size: 0.9rem; }
-    .svc-card ul { grid-template-columns: 1fr 1fr; gap: 0.35rem 0.8rem; font-size: 0.76rem; padding-top: 0.9rem; }
+    .svc-card ul { column-gap: 0.8rem; font-size: 0.76rem; padding-top: 0.9rem; }
+    .svc-card li { margin-bottom: 0.35rem; }
     .svc-card::after { display: none; }
-    .svc-head h2 { font-size: 2.4rem; }
-    .svc-card.long ul { grid-template-columns: 1fr 1fr; gap: 0.3rem 0.8rem; font-size: 0.74rem; }
+    .svc-head h2 { font-size: 1.9rem; margin: 0.6rem 0; }
+    .svc-head h2 span { display: inline; }
+    .svc-head h2 span:first-child { margin-right: 0.25em; }
+    .how .stage, .svc .stage { align-content: start; padding: 5.9rem var(--gutter) 1rem; gap: 1.1rem; }
+    .diff .stage { align-content: start; padding: 5.9rem var(--gutter) 1rem; }
+    .diff h2 { font-size: 2.1rem; margin: 0.7rem 0; }
     .t-head, .t-row { grid-template-columns: 1fr 1.4rem 1.15fr; gap: 0.6rem; }
     .t-old { font-size: 0.8rem; }
     .t-new { font-size: 0.9rem; }
     .diff .copy { display: none; }
+    .steps .t-head, .steps .t-arrow { display: none; }
+    .steps .t-row { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.45rem 0; }
+    .steps .t-old { font-size: 0.78rem; line-height: 1.4; }
+    .steps .t-old b { font-size: 0.82rem; margin-bottom: 0.15rem; }
+    .steps .t-new { font-size: 0.86rem; color: var(--red); }
+    .diff .stage { gap: 1.2rem; }
     .build-foot { flex-direction: column; align-items: flex-start; }
     .cta { padding: 1.05rem 1.5rem; font-size: 0.8rem; }
     .footer-band { flex-direction: column; align-items: flex-start; }
     .footer-right { justify-items: start; text-align: left; }
     .footer-links { justify-content: flex-start; }
+    .footer-copy .fc-sep { display: none; }
+    .footer-copy .fc-tel { display: block; margin-top: 0.35rem; white-space: nowrap; }
   }
+
+  /* ---------- Card auto-fit: JS adds .tight / .tighter when a card's content is taller than the card ---------- */
+  .svc-card.tight { padding-block: 1.3rem; }
+  .svc-card.tight h3, .svc-card.tight h3.sm { margin: 0.9rem 0 0.5rem; font-size: clamp(1.35rem, 2.2vw, 2.2rem); }
+  .svc-card.tight .svc-tag { margin-bottom: 0.45rem; font-size: 0.98rem; }
+  .svc-card.tight .body p { margin-bottom: 0.4rem; font-size: 0.84rem; line-height: 1.45; }
+  .svc-card.tight ul { padding-top: 0.8rem; font-size: 0.82rem; }
+  .svc-card.tight li { margin-bottom: 0.35rem; }
+  .svc-card.tight .objective { padding: 0.65rem 0.9rem; }
+  .svc-card.tight .objective p { font-size: 0.8rem; }
+  .svc-card.tight .objective strong { font-size: 0.9rem; }
+  .svc-card.tight .areas li { margin-bottom: 0.5rem; }
+  .svc-card.tight .areas b { font-size: 0.88rem; }
+  .svc-card.tight .areas span { font-size: 0.76rem; line-height: 1.35; }
+  .svc-card.tighter { padding: 1rem 1.1rem; }
+  .svc-card.tighter h3, .svc-card.tighter h3.sm { margin: 0.6rem 0 0.35rem; font-size: clamp(1.15rem, 1.8vw, 1.7rem); }
+  .svc-card.tighter .svc-tag { font-size: 0.88rem; }
+  .svc-card.tighter .body p { font-size: 0.76rem; line-height: 1.4; }
+  .svc-card.tighter ul { padding-top: 0.6rem; font-size: 0.74rem; }
+  .svc-card.tighter li { margin-bottom: 0.25rem; }
+  .svc-card.tighter .objective p { font-size: 0.74rem; }
+  .svc-card.tighter .objective strong { font-size: 0.82rem; }
+  .svc-card.tighter .areas span { font-size: 0.7rem; }
+  @media (max-width: 767px) { .svc-card.tighter .body p, .svc-card.tighter .objective p { font-size: 0.7rem; line-height: 1.35; margin-bottom: 0.25rem; } .svc-card.tighter .svc-tag { font-size: 0.8rem; margin-bottom: 0.3rem; } .svc-card.tighter .objective { padding: 0.5rem 0.7rem; } .svc-card.tighter .objective small { margin-bottom: 0.2rem; } }
 
   /* ---------- Reduced motion: no smooth scroll, no parallax, no pinning; stable flower ---------- */
   @media (prefers-reduced-motion: reduce) {
@@ -313,32 +445,69 @@
     #gl { position: absolute; height: 100vh; }
     .hero-intro { opacity: 1; transform: none; filter: none; transition: none; }
     .scroll-cue svg, .menu, .menu a { animation: none; transition: none; }
-    .ticker-track, .ticker-group .star, .ticker-group .box, .footer-band::before, .footer-tag .star, .welcome::before, .welcome-track, .welcome-group i { animation: none; }
-    .f-rev { opacity: 1; transform: none; transition: none; }
+    .footer-tag .star, .tongues-row, .tongues-a svg, .welcome-track { animation: none; }
+    .f-rev, .p-rev, .proof .p-rev { opacity: 1; transform: none; transition: none; }
+    .wa-btn::before { animation: none; display: none; }
   }
 </style>
 
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
+
+<!-- Microsoft Clarity (heatmaps + session recordings) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ywkdq5ji1j");
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '985014427231806');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=985014427231806&ev=PageView&noscript=1"></noscript>
+<script>
+  // Meta Pixel: a WhatsApp, email or phone click counts as a "Contact"
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a || !window.fbq) return;
+    const h = a.getAttribute('href');
+    if (/^https:\/\/wa\.me\//.test(h)) fbq('track', 'Contact', { method: 'whatsapp' });
+    else if (/^mailto:/.test(h)) fbq('track', 'Contact', { method: 'email' });
+    else if (/^tel:/.test(h)) fbq('track', 'Contact', { method: 'phone' });
+  });
+</script>
 <div class="world-bg" id="worldBg" aria-hidden="true"></div>
-<canvas id="gl" aria-hidden="true"></canvas>
-<div class="grain" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas><div id="bfly" aria-hidden="true"><div class="bfly-wing"></div></div><div class="grain" aria-hidden="true"></div>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
+<a class="wa-btn" href="https://wa.me/919786564820?text=Hi%20Loca%20Brands%2C%20I%27d%20like%20to%20start%20a%20conversation." target="_blank" rel="noopener" aria-label="Chat with Loca Brands on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.36 4 14.96c0 2.3.66 4.45 1.8 6.27L4 29l7.98-1.76a12.1 12.1 0 0 0 4.06.7h.01C22.68 27.94 28 22.58 28 15.98 28 9.38 22.68 3 16.04 3Zm0 22.86h-.01a9.97 9.97 0 0 1-5.1-1.4l-.37-.22-4.73 1.04 1.06-4.6-.24-.38a9.85 9.85 0 0 1-1.53-5.3c0-5.47 4.47-9.92 9.93-9.92 2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.02c0 5.48-4.46 10.86-8.92 10.86Zm5.44-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.62.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg><span class="wa-tip">Chat on WhatsApp</span></a>
 <header class="nav" id="nav">
-  <a class="logo" href="#top" aria-label="LOCA BRANDS, back to top">LOCA BRANDS<span>.</span></a>
+  <a class="logo" href="#top" aria-label="LOCA BRANDS, back to top"><span class="logo-pill"><span class="logo-mark" aria-hidden="true"></span></span></a>
   <nav class="nav-links" aria-label="Primary">
     <a href="#what-we-do">What We Do</a>
     <a href="#how-we-work">How We Work</a>
     <a href="#services">Our Services</a>
-    <a href="#difference">Our Difference</a>
+    <a href="#difference">Why Loca</a>
   </nav>
-  <a class="nav-cta" href="#lets-build">Let's Build <span class="arrow" aria-hidden="true">↗</span></a>
+  <a class="nav-cta" href="tel:+919786564820" aria-label="Let's Build: call Loca Brands on +91 97865 64820">Let's Build <span class="arrow" aria-hidden="true">↗</span></a>
   <button class="nav-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
 
@@ -346,7 +515,7 @@
   <a href="#what-we-do" style="--i:0">What We Do</a>
   <a href="#how-we-work" style="--i:1">How We Work</a>
   <a href="#services" style="--i:2">Our Services</a>
-  <a href="#difference" style="--i:3">Our Difference</a>
+  <a href="#difference" style="--i:3">Why Loca</a>
   <a href="#lets-build" style="--i:4">Let's Build</a>
   <a class="menu-mail" href="mailto:Pranav@locabrands.com" style="--i:5">Pranav@locabrands.com</a>
 </div>
@@ -363,10 +532,10 @@
         <span class="fg-dot" data-fx style="width:6px;height:6px;left:88vw;top:74vh;background:#090909"></span>
       </div>
       <div class="hero-copy" id="heroCopy" data-fx>
-        <p class="label hero-intro">Independent brand building studio · LOCA BRANDS</p>
-        <h1 class="display hero-intro" style="--d:.1s"><span class="l thin">We build the</span><span class="l">Founder.</span><span class="l">The Brand.</span><span class="l red">The Demand Engine.</span></h1>
-        <p class="hero-sub hero-intro" style="--d:.22s">From idea to product, brand, technology, go-to-market and growth.</p>
-        <p class="copy hero-note hero-intro" style="--d:.32s">We bring the D2C ecosystem together as one integrated system — building new brands and thoughtfully evolving what already exists.</p>
+        <p class="label hero-intro">Growth &amp; Venture Partners for Consumer Businesses</p>
+        <h1 class="display hero-intro" style="--d:.1s"><span class="l thin">We build</span><span class="l">The Brand.</span><span class="l">The Strategy.</span><span class="l red">The Demand Engine.</span></h1>
+        <p class="hero-sub hero-intro" style="--d:.22s">Loca Brands works with consumer businesses at the moments that matter most, when they are ready to <b style="color:var(--red)">Build, Transform &amp; Accelerate</b>.</p>
+        <p class="copy hero-note hero-intro" style="--d:.32s">We combine consumer intelligence, product thinking, positioning, go-to-market strategy, D2C, commerce and growth to turn business opportunities into scalable consumer propositions. <b style="color:var(--black)">We don't just build brands. We build the systems that help them grow.</b></p>
       </div>
       <script>
         // Hover the headline: its words are written one by one; hovering a single word re-writes just that word
@@ -407,201 +576,216 @@
     </div>
   </section>
 
-  <!-- Ticker strip -->
-  <div class="ticker" aria-label="Build, Launch, Scale — one integrated system">
-    <div class="ticker-track" aria-hidden="true">
-      <div class="ticker-group">
-        <span>Build · Launch · Scale</span><i class="star">✦</i>
-        <span>Founder</span><i class="star">✦</i>
-        <span>Brand</span><i class="star">✦</i>
-        <span>Demand <span class="it">Engine</span></span><i class="star">✦</i>
-        <span>One Integrated<b class="box">System</b></span><i class="star">✦</i>
-        <span>Senior-led D2C Studio</span><i class="star">✦</i>
-      </div>
-      <div class="ticker-group">
-        <span>Build · Launch · Scale</span><i class="star">✦</i>
-        <span>Founder</span><i class="star">✦</i>
-        <span>Brand</span><i class="star">✦</i>
-        <span>Demand <span class="it">Engine</span></span><i class="star">✦</i>
-        <span>One Integrated<b class="box">System</b></span><i class="star">✦</i>
-        <span>Senior-led D2C Studio</span><i class="star">✦</i>
-      </div>
-    </div>
+  <!-- Band: outline statement + Loca Brands in five languages -->
+  <div class="tongues" role="img" aria-label="We build systems, we grow brands, Loca Brands in English, Tamil, Telugu, Hindi and Kannada">
+    <div class="tongues-a" aria-hidden="true"><div class="tongues-row" id="tgA"></div></div>
+    <div class="tongues-b" aria-hidden="true"><div class="tongues-row rev" id="tgB"></div></div>
   </div>
   <script>
-    // Ticker flop: the strip flips in on entry, tilts in 3D with scroll speed, and runs in the scroll direction
+    // Build both marquee rows (two identical groups each, so the -50% loop is seamless)
     (() => {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const tk = document.querySelector('.ticker'), tr = tk.querySelector('.ticker-track');
-      tr.style.animation = 'none';
-      let half = 0, x = 0, dir = 1, vel = 0, flop = 0, cur = 30, hover = false, lastY = scrollY, last = performance.now();
-      const measure = () => { half = tr.scrollWidth / 2; };
-      measure(); addEventListener('resize', measure); document.fonts && document.fonts.ready.then(measure);
-      tk.addEventListener('mouseenter', () => hover = true);
-      tk.addEventListener('mouseleave', () => hover = false);
-      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-      (function loop(now) {
-        const dt = Math.min(0.05, (now - last) / 1000); last = now;
-        const y = scrollY, d = y - lastY; lastY = y;
-        vel += (d - vel) * 0.06;
-        if (Math.abs(d) > 2) dir = d > 0 ? 1 : -1;
-        // marquee: slow base speed, gently boosted by scroll speed; speed and direction ease in (no jumps)
-        const target = hover ? 0 : dir * (30 + Math.min(Math.abs(vel) * 10, 220));
-        cur += (target - cur) * Math.min(1, dt * 2.2);
-        x -= cur * dt;
-        if (half) { if (x <= -half) x += half; if (x > 0) x -= half; }
-        tr.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
-        // flop: springy tilt from scroll velocity + flip-in as the strip enters the viewport
-        flop += (clamp(vel * 0.7, -18, 18) - flop) * Math.min(1, dt * 3);
-        const r = tk.getBoundingClientRect(), raw = clamp((innerHeight - r.top) / (innerHeight * 0.5), 0, 1);
-        const enter = raw * raw * (3 - 2 * raw);   // smoothstep for a soft flip-in
-        const flip = (1 - enter) * -60;
-        tk.style.transform = `perspective(900px) rotateX(${(flip + flop).toFixed(2)}deg) skewY(${(flop * -0.06).toFixed(2)}deg) scale(${(1 + Math.abs(flop) * 0.002).toFixed(3)})`;
-        requestAnimationFrame(loop);
-      })(last);
+      const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z"/></svg>';
+      const pair = `<span class="ol">We Build</span><span class="bx">Systems</span>${star}<span class="ol">We Grow</span><span class="bx">Brands</span>${star}`;
+      // English, Tamil, Telugu, Hindi, Kannada, listed twice so one group is wider than any screen
+      const names = ['LOCA BRANDS', 'லோகா பிராண்ட்ஸ்', 'లోకా బ్రాండ్స్', 'लोका ब्रांड्स', 'ಲೋಕಾ ಬ್ರ್ಯಾಂಡ್ಸ್'];
+      const tongues = names.concat(names).map((n) => `<span>${n}</span><i></i>`).join('');
+      const fill = (id, html) => { document.getElementById(id).innerHTML = `<div class="tg">${html}</div><div class="tg">${html}</div>`; };
+      fill('tgA', pair + pair);
+      fill('tgB', tongues);
     })();
   </script>
 
-  <!-- 02 — What we do -->
+  <!-- 02, What we do -->
   <section class="pin wwd" id="what-we-do">
     <div class="stage">
-      <p class="label">02 — What We Do</p>
-      <h2 class="display big-words" aria-label="Build. Launch. Scale.">
-        <span data-fx aria-hidden="true">Build.</span><span data-fx aria-hidden="true">Launch.</span><span data-fx aria-hidden="true">Scale.</span>
+      <p class="label">02 · What We Do</p>
+      <h2 class="display big-words" aria-label="Build. Transform. Scale.">
+        <span data-fx aria-hidden="true">Build.</span><span data-fx aria-hidden="true">Transform.</span><span data-fx aria-hidden="true">Scale.</span>
       </h2>
       <div class="wwd-text">
-        <p class="statement" data-fx>We are a senior-led brand building studio that helps founders and businesses build, launch, evolve, and scale consumer brands as one integrated system.</p>
-        <p class="copy" data-fx>We partner with founders and leadership teams to build new brands and thoughtfully evolve what already exists.</p>
-        <p class="copy extra" data-fx>We create the systems needed for sustainable growth.</p>
-        <p class="copy" data-fx>From idea to product, brand, design, technology, go-to-market, and growth, we bring the D2C ecosystem together as <span class="serif red">one integrated system.</span></p>
+        <p class="statement" data-fx>We help consumer businesses move to their next stage.</p>
+        <p class="copy" data-fx>Every consumer business reaches a point where what worked yesterday is no longer enough.</p>
+        <p class="copy extra" data-fx>A traditional business may have a strong product and years of category expertise, but lack a modern D2C engine. An established consumer brand may have reached the market, but struggle with positioning, demand, acquisition or its next stage of growth.</p>
+        <p class="copy" data-fx><b>Loca Brands works across both.</b> We bring together the strategic and commercial disciplines required to build, transform and scale consumer businesses, from <span class="serif red">product and positioning to GTM, D2C, commerce and growth.</span></p>
+        <p class="mantra" data-fx><span>Build What’s Next.</span><span>Transform the existing one.</span><span>Scale what works.</span></p>
       </div>
     </div>
   </section>
 
-  <!-- 03 — How we work -->
+  <!-- 03, How we work: two engagement paths, stacked cards -->
   <section class="pin how" id="how-we-work">
     <div class="stage">
-      <div class="how-head">
-        <div>
-          <p class="label">03 — How We Work</p>
-          <h2 class="display" data-fx style="margin-top:1.2rem"><span>Two</span><span class="red">Ways.</span></h2>
-        </div>
+      <div class="svc-head">
+        <p class="label">03 · How We Work</p>
+        <h2 class="display"><span>Two</span><span class="red">Ways.</span></h2>
+        <p class="copy" style="max-width:26rem">We don't believe every business needs the same solution. Our engagements typically begin in one of two ways.</p>
+        <div class="svc-count" id="howCount" aria-hidden="true"><b id="howNum">01</b><i></i><span>02</span></div>
       </div>
-      <div class="way-grid">
-        <article class="card" data-fx id="way1"><div class="card-lift">
-          <span class="way-num">01</span>
-          <h3>On-Demand Expertise</h3>
-          <p class="copy">Brands and founders can engage us for specific services or challenges based on their immediate requirements.</p>
-          <p class="copy">We tailor our expertise and assemble the right capabilities around what the brand needs.</p>
-        </div></article>
-        <article class="card" data-fx id="way2"><div class="card-lift">
-          <span class="way-num">02</span>
-          <h3>End-to-End Brand Building</h3>
-          <p class="copy">For founders building a new venture, we can become a long-term strategic and execution partner — working across the entire journey from idea, product development and brand building to launch, growth, scale, and ultimately exit.</p>
-        </div></article>
+      <div class="svc-stack">
+        <article class="svc-card" data-n="01" data-speed="0.35">
+          <div class="svc-top"><span>Path <b>01</b></span><span>Traditional → Modern</span></div>
+          <h3 class="sm">From Traditional to Modern Consumer</h3>
+          <p class="svc-tag">When a strong business needs a stronger digital future. <span class="red">Turn what you have into what the market wants next.</span></p>
+          <div class="body"><p>You already have the product, capability and consumer trust. We build the modern consumer brand around it.</p></div>
+          <ul><li>Product &amp; Portfolio</li><li>Consumer &amp; Positioning</li><li>Go-To-Market</li><li>D2C &amp; Commerce</li><li>Growth</li></ul>
+          <div class="objective"><small>The objective</small><strong>A modern consumer growth engine around the business.</strong></div>
+        </article>
+        <article class="svc-card" data-n="02" data-speed="0.5">
+          <div class="svc-top"><span>Path <b>02</b></span><span>Existing → Next Stage</span></div>
+          <h3 class="sm">From Existing Brand to Next Stage</h3>
+          <p class="svc-tag">When the business exists, but growth needs a new direction.</p>
+          <div class="body"><p>We find what's holding growth back, sharpen the proposition and build the systems for the next stage.</p></div>
+          <ul><li>GTM</li><li>Repositioning</li><li>Demand Creation</li><li>Growth Strategy</li><li>Commerce</li><li>Expansion</li></ul>
+          <div class="objective"><small>The objective</small><strong>A stronger business with a clearer reason to grow.</strong></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- 04 — Our services: six capabilities stack in sequence -->
+  <!-- 04, Our services: the core disciplines stack in sequence -->
   <section class="pin svc" id="services">
     <div class="stage">
       <div class="svc-head">
-        <p class="label">04 — Our Services</p>
-        <h2 class="display"><span>The</span><span class="red">Engine.</span></h2>
-        <p class="copy" style="max-width:26rem">One integrated system across product, brand, design, technology, go-to-market and personal branding.</p>
+        <p class="label">04 · Our Services</p>
+        <h2 class="display"><span>The</span><span class="red">Disciplines.</span></h2>
+        <p class="copy" style="max-width:26rem">The disciplines behind consumer growth. We keep our core offering focused around the areas where we create the most strategic value.</p>
         <div class="svc-count" id="svcCount" aria-hidden="true"><b id="svcNum">01</b><i></i><span>06</span></div>
       </div>
       <div class="svc-stack" id="svcStack">
         <article class="svc-card" data-n="01" data-speed="0.35">
-          <div class="svc-top"><span>Service <b>01</b></span><span>Product</span></div>
-          <h3>Product</h3>
-          <p>From opportunity identification to a market-ready product.</p>
-          <ul><li>Market &amp; consumer research</li><li>Product opportunity</li><li>Product strategy</li><li>Product architecture</li><li>Product development</li><li>Packaging strategy</li><li>Product-market fit</li></ul>
+          <div class="svc-top"><span>Service <b>01</b></span><span>Intelligence &amp; GTM</span></div>
+          <h3 class="sm">Consumer Intelligence &amp; Go To Market</h3>
+          <p class="svc-tag">Know where to play. Know how to win.</p>
+          <div class="body"><p>Before building a brand or launching a product, we determine where the opportunity actually exists. We combine market intelligence, consumer understanding and commercial thinking to develop a clear route to market.</p></div>
+          <ul><li>Go To Market Strategy Development</li><li>Pilot Launch Planning</li><li>Customer Acquisition &amp; Retention Frameworks</li><li>Market Segmentation &amp; Prioritization</li><li>Channel Strategy</li><li>Sales &amp; Marketing Frameworks</li><li>Pricing Strategy</li><li>Iteration &amp; Feedback Planning</li><li>Strategic Network Leverage</li><li>Post-Launch Support</li></ul>
         </article>
         <article class="svc-card" data-n="02" data-speed="0.42">
-          <div class="svc-top"><span>Service <b>02</b></span><span>Brand</span></div>
-          <h3>Brand</h3>
-          <p>Create a brand people can recognize, remember and believe in.</p>
-          <ul><li>Brand strategy</li><li>Positioning</li><li>Naming</li><li>Brand architecture</li><li>Brand identity</li><li>Brand narrative</li><li>Communication strategy</li></ul>
+          <div class="svc-top"><span>Service <b>02</b></span><span>Product &amp; Brand</span></div>
+          <h3 class="sm">Product &amp; Consumer Brand Transformation</h3>
+          <p class="svc-tag">Build what the market is ready for.</p>
+          <div class="body"><p>We work across the intersection of <b>product, consumer and brand</b>, helping businesses refine what they sell and how the market understands it.</p></div>
+          <ul><li>Product Strategy</li><li>Product Development &amp; New Product Development</li><li>Portfolio Architecture</li><li>Product-Market Fit</li><li>Brand Strategy</li><li>Positioning</li><li>Proposition Development</li><li>Brand Transformation</li></ul>
         </article>
         <article class="svc-card" data-n="03" data-speed="0.5">
-          <div class="svc-top"><span>Service <b>03</b></span><span>Design</span></div>
-          <h3>Design</h3>
-          <p>Turn strategy into a distinctive consumer experience.</p>
-          <ul><li>Visual identity</li><li>Packaging</li><li>Digital experience</li><li>Website &amp; e-commerce</li><li>Campaign design</li><li>Content systems</li><li>Retail &amp; physical touchpoints</li></ul>
+          <div class="svc-top"><span>Service <b>03</b></span><span>D2C &amp; Commerce</span></div>
+          <h3 class="sm">D2C &amp; Commerce Transformation</h3>
+          <p class="svc-tag">Build the infrastructure behind modern consumer brands.</p>
+          <div class="body"><p>Going digital is more than launching a website. We help businesses create the connected systems required to acquire, convert and retain customers across modern commerce.</p></div>
+          <ul><li>D2C Strategy</li><li>E-commerce Ecosystem</li><li>Marketplace Strategy</li><li>Digital Commerce Architecture</li><li>Customer Journey</li><li>Conversion Systems</li><li>Commerce Growth</li></ul>
         </article>
         <article class="svc-card" data-n="04" data-speed="0.58">
-          <div class="svc-top"><span>Service <b>04</b></span><span>Technology</span></div>
-          <h3>Technology</h3>
-          <p>Build the digital infrastructure behind the brand.</p>
-          <ul><li>E-commerce</li><li>Websites</li><li>Conversion architecture</li><li>Digital systems</li><li>Analytics</li><li>CRM</li><li>Automation</li><li>Growth technology</li></ul>
+          <div class="svc-top"><span>Service <b>04</b></span><span>Growth Advisory</span></div>
+          <h3 class="sm">Consumer Growth Advisory</h3>
+          <p class="svc-tag">Turn growth into a system.</p>
+          <div class="body"><p>Once the business is in market, we help leadership identify the constraints, opportunities and growth levers that matter.</p></div>
+          <ul><li>Growth Strategy</li><li>Demand Generation</li><li>Customer Acquisition</li><li>Conversion &amp; Funnel Strategy</li><li>Retention &amp; Repeat Growth</li><li>Unit Economics</li><li>Channel Expansion</li><li>Growth Experimentation</li><li>Commercial Diagnostics</li></ul>
         </article>
         <article class="svc-card" data-n="05" data-speed="0.66">
-          <div class="svc-top"><span>Service <b>05</b></span><span>Go-to-Market</span></div>
-          <h3>Go-to-Market</h3>
-          <p>Turn the brand into a business.</p>
-          <ul><li>GTM strategy</li><li>Launch planning</li><li>Customer acquisition</li><li>Content &amp; social</li><li>Influencer strategy</li><li>Performance marketing</li><li>Distribution</li><li>Retention</li><li>Growth systems</li></ul>
+          <div class="svc-top"><span>Service <b>05</b></span><span>Wider network</span></div>
+          <h3 class="sm">Beyond the Core</h3>
+          <p class="svc-tag">Built around the business, not a fixed service menu.</p>
+          <div class="body">
+            <p>Some businesses require capabilities beyond our core strategic disciplines.</p>
+            <p>Depending on the engagement, we can bring together specialist capabilities across <b>content, creative, performance, technology and founder authority</b> through our wider network.</p>
+            <p>These capabilities are not sold as disconnected services. <b>They are deployed when they serve the larger business objective.</b></p>
+          </div>
         </article>
-        <article class="svc-card long" data-n="06" data-speed="0.72">
-          <div class="svc-top"><span>Service <b>06</b></span><span>Personal Branding</span></div>
-          <h3>Personal<br>Branding</h3>
-          <p>LinkedIn + Instagram — build the founder alongside the brand.</p>
-          <ul><li>Personal brand strategy</li><li>Positioning &amp; narrative</li><li>Thought leadership</li><li>Content strategy</li><li>Founder-led storytelling</li><li>Authority building</li><li>Network &amp; community strategy</li><li>Content pillars &amp; formats</li><li>Short-form video strategy</li><li>Reels &amp; visual storytelling</li><li>Founder lifestyle &amp; behind-the-scenes content</li></ul>
+        <article class="svc-card" data-n="06" data-speed="0.72">
+          <div class="svc-top"><span>Service <b>06</b></span><span>Beyond the brief</span></div>
+          <h3 class="sm">Long-term Partnerships</h3>
+          <p class="svc-tag">For businesses we believe in beyond the brief.</p>
+          <div class="body">
+            <p>For selected businesses, our relationship can evolve from a project into a long-term growth partnership.</p>
+            <p>We work alongside leadership on broader strategic priorities, expansion opportunities, growth initiatives and, where appropriate, <b>investor readiness and access to relevant strategic networks.</b></p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 05 — Our difference -->
+  <!-- 05, Why Loca: we operate upstream — the five-step process -->
   <section class="pin diff" id="difference">
     <div class="stage">
       <div>
-        <p class="label">05 — Our Difference</p>
-        <h2 class="display"><span>Not another</span><span class="red">agency.</span></h2>
-        <p class="copy" style="max-width:24rem">A different operating model: strategy and execution under one roof, built for long-term outcomes.</p>
+        <p class="label">05 · Why Loca</p>
+        <h2 class="display"><span>We operate</span><span class="red">upstream.</span></h2>
+        <p class="copy" style="max-width:26rem">From understanding the business to scaling what works, five steps, one connected system.</p>
       </div>
-      <div class="table" role="table" aria-label="Traditional model compared with our model">
-        <div class="t-head" role="row"><span role="columnheader">Traditional Model</span><span aria-hidden="true"></span><span role="columnheader">Our Model</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Marketing agency</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Brand building studio</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Function-led</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Outcome-led</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Campaign focused</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Business focused</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Multiple disconnected partners</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">One integrated system</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Execution first</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Strategy → execution</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Short-term projects</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Long-term partnerships</span></div>
-        <div class="t-row" role="row" data-fx><span class="t-old" role="cell">Marketing after product</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new" role="cell">Product + brand + GTM from day one</span></div>
+      <div class="table steps" aria-label="How we operate, step by step">
+        <div class="t-head"><span>The step</span><span aria-hidden="true"></span><span>The outcome</span></div>
+        <div class="t-row" data-fx><span class="t-old"><b>01 Understand</b>We immerse ourselves in the business, category, consumer and competitive landscape.</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new">Find the signal.</span></div>
+        <div class="t-row" data-fx><span class="t-old"><b>02 Define</b>We identify the opportunity and make the critical decisions around the consumer, proposition, product, positioning and market.</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new">Set the direction.</span></div>
+        <div class="t-row" data-fx><span class="t-old"><b>03 Build</b>We turn strategy into a practical go-to-market and growth system.</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new">Build the engine.</span></div>
+        <div class="t-row" data-fx><span class="t-old"><b>04 Test</b>We take the strategy to market, learn from real consumer behaviour and refine what works.</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new">Let the market respond.</span></div>
+        <div class="t-row" data-fx><span class="t-old"><b>05 Scale</b>We double down on what works and build the systems required for the next stage of growth.</span><span class="t-arrow" aria-hidden="true">→</span><span class="t-new">Scale with proof.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 06 — Let's build: full bloom -->
+  <!-- 06, Strategy meets execution: full bloom -->
   <section class="pin build" id="lets-build">
     <div class="stage">
-      <p class="label">06 — Let's Build</p>
-      <h2 class="display" aria-label="The Founder. The Brand. The Demand.">
-        <span data-fx aria-hidden="true">The Founder.</span><span data-fx aria-hidden="true">The Brand.</span><span data-fx aria-hidden="true">The Demand.</span>
+      <p class="label">06 · Strategy Meets Execution</p>
+      <h2 class="display" aria-label="One strategic direction. One integrated system. One partner accountable for the bigger picture.">
+        <span data-fx aria-hidden="true">One Direction.</span><span data-fx aria-hidden="true">One System.</span><span data-fx aria-hidden="true">One Partner.</span>
       </h2>
       <div class="build-foot">
-        <p class="copy" data-fx>A senior-led partner for the journey from idea to product, brand, launch, growth and scale.</p>
-        <a class="cta" id="cta" data-fx href="mailto:Pranav@locabrands.com?subject=Let%27s%20build">Start a Conversation <span class="arrow" aria-hidden="true">↗</span></a>
+        <p class="copy" data-fx>We don't believe strategy should end in a presentation. Where the engagement requires it, we stay close to implementation, coordinating specialist capabilities and helping translate strategy into the market. <b>One strategic direction. One integrated system. One partner accountable for the bigger picture.</b></p>
+        <div class="build-cta" id="cta" data-fx>
+          <a class="cta" href="contact.html">Start a Conversation <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </div>
   </section>
+
 </main>
 
-<div class="bridge" id="bridge" aria-hidden="true"></div>
+<div class="bridge" id="bridge">
+    <section class="proof" id="proof" aria-label="Our experience">
+      <div class="proof-inner">
+        <div class="proof-stats">
+          <div class="stat p-rev"><b data-count="30">30</b><span>+</span><p>Years of collective experience</p></div>
+          <div class="stat p-rev" style="--d:.1s"><b data-count="30">30</b><span>+</span><p>Brands &amp; businesses</p></div>
+          <div class="stat p-rev" style="--d:.2s"><b data-count="10">10</b><span>+</span><p>Industries</p></div>
+        </div>
+        <ul class="proof-tags p-rev" style="--d:.3s" aria-label="Industries"><li>Consumer</li><li>FMCG</li><li>F&amp;B</li><li>Personal Care</li><li>Retail</li><li>Hospitality</li><li>D2C</li><li>E-commerce</li></ul>
+        <p class="proof-note p-rev" style="--d:.4s">Across our core team and strategic partner network.</p>
+      </div>
+    </section>
+    <script>
+      // reveal + count the numbers up once, when the strip scrolls into view
+      (() => {
+        const s = document.getElementById("proof"), nums = s.querySelectorAll("[data-count]");
+        const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const run = () => {
+          s.classList.add("is-in");
+          if (still) return;
+          const t0 = performance.now();
+          nums.forEach((n) => { n.textContent = "0"; });
+          (function tick(now) {
+            const k = Math.min(1, (now - t0) / 1600), e = 1 - Math.pow(1 - k, 3);
+            nums.forEach((n) => { n.textContent = Math.round(+n.dataset.count * e); });
+            if (k < 1) requestAnimationFrame(tick);
+          })(t0);
+        };
+        if (!("IntersectionObserver" in window)) { run(); return; }
+        const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { run(); io.disconnect(); } }, { threshold: 0.35 });
+        io.observe(s);
+      })();
+    </script>
+</div>
 
 <footer class="footer" id="contact">
   <div class="welcome">
-    <p class="sr-only">To Loca Brands</p>
-    <div class="welcome-track" aria-hidden="true">
-      <div class="welcome-group"><span>To Loca Brands</span><i>✦</i><span class="o">To Loca Brands</span><i>✦</i><span>To Loca Brands</span><i>✦</i><span class="o">To Loca Brands</span><i>✦</i></div>
-      <div class="welcome-group"><span>To Loca Brands</span><i>✦</i><span class="o">To Loca Brands</span><i>✦</i><span>To Loca Brands</span><i>✦</i><span class="o">To Loca Brands</span><i>✦</i></div>
+    <p class="sr-only">Brands we have worked with</p>
+    <div class="welcome-track">
+      <div class="welcome-group"><img src="assets/clients/geek.png" alt="Geek" width="253" height="204" style="--k:0.90" loading="lazy" decoding="async"><img src="assets/clients/time-square.png" alt="Time Square Restobar" width="191" height="175" style="--k:0.96" loading="lazy" decoding="async"><img src="assets/clients/9skin.png" alt="9SKIN" width="233" height="50" style="--k:0.46" loading="lazy" decoding="async"><img src="assets/clients/ghomoo.png" alt="Ghomoo" width="159" height="167" style="--k:1.02" loading="lazy" decoding="async"><img src="assets/clients/waffor.png" alt="Waffor" width="185" height="114" style="--k:0.78" loading="lazy" decoding="async"><img src="assets/clients/forest-essentials.png" alt="Forest Essentials" width="253" height="213" style="--k:0.92" loading="lazy" decoding="async"><img src="assets/clients/wellness.png" alt="Wellness brand" width="192" height="196" style="--k:1.01" loading="lazy" decoding="async"><img src="assets/clients/harkin.png" alt="Harkin" width="201" height="43" style="--k:0.46" loading="lazy" decoding="async"><img src="assets/clients/rentla.png" alt="Rentla" width="203" height="108" style="--k:0.73" loading="lazy" decoding="async"><img src="assets/clients/teakpro.png" alt="TeakPro" width="224" height="70" style="--k:0.56" loading="lazy" decoding="async"><img src="assets/clients/ahnaa.png" alt="Ahnaa" width="253" height="139" style="--k:0.74" loading="lazy" decoding="async"><img src="assets/clients/flame.png" alt="Flame Le Club" width="171" height="65" style="--k:0.62" loading="lazy" decoding="async"></div>
+      <div class="welcome-group" aria-hidden="true"><img src="assets/clients/geek.png" alt="" width="253" height="204" style="--k:0.90" loading="lazy" decoding="async"><img src="assets/clients/time-square.png" alt="" width="191" height="175" style="--k:0.96" loading="lazy" decoding="async"><img src="assets/clients/9skin.png" alt="" width="233" height="50" style="--k:0.46" loading="lazy" decoding="async"><img src="assets/clients/ghomoo.png" alt="" width="159" height="167" style="--k:1.02" loading="lazy" decoding="async"><img src="assets/clients/waffor.png" alt="" width="185" height="114" style="--k:0.78" loading="lazy" decoding="async"><img src="assets/clients/forest-essentials.png" alt="" width="253" height="213" style="--k:0.92" loading="lazy" decoding="async"><img src="assets/clients/wellness.png" alt="" width="192" height="196" style="--k:1.01" loading="lazy" decoding="async"><img src="assets/clients/harkin.png" alt="" width="201" height="43" style="--k:0.46" loading="lazy" decoding="async"><img src="assets/clients/rentla.png" alt="" width="203" height="108" style="--k:0.73" loading="lazy" decoding="async"><img src="assets/clients/teakpro.png" alt="" width="224" height="70" style="--k:0.56" loading="lazy" decoding="async"><img src="assets/clients/ahnaa.png" alt="" width="253" height="139" style="--k:0.74" loading="lazy" decoding="async"><img src="assets/clients/flame.png" alt="" width="171" height="65" style="--k:0.62" loading="lazy" decoding="async"></div>
     </div>
   </div>
   <div class="footer-band">
     <div>
-      <p class="footer-tag f-rev">Loca Brands! We build <em>brands</em> as one system<i class="star" aria-hidden="true">✦</i></p>
+      <p class="footer-tag f-rev">Loca Brands! We build the <em>systems</em> that help brands grow<i class="star" aria-hidden="true">✦</i></p>
       <div class="footer-social f-rev" style="--d:.12s">
         <a href="mailto:Pranav@locabrands.com" aria-label="Email Loca Brands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
         <a href="#" aria-label="Loca Brands on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
@@ -610,8 +794,8 @@
     </div>
     <div class="footer-right">
       <nav class="footer-links f-rev" style="--d:.08s" aria-label="Footer"><a href="#what-we-do">What We Do</a><a href="#services">Services</a><a href="#lets-build">Let's Build</a></nav>
-      <p class="footer-copy f-rev" style="--d:.18s">© 2026 LOCA BRANDS · <a href="mailto:Pranav@locabrands.com">Pranav@locabrands.com</a> · <a href="tel:+919786564820">+91 97865 64820</a></p>
-      <p class="footer-meta f-rev" style="--d:.28s">D2C · Product · Brand · Technology · Go-to-market · Growth</p>
+      <p class="footer-copy f-rev" style="--d:.18s">© 2026 LOCA BRANDS · <a href="mailto:Pranav@locabrands.com">Pranav@locabrands.com</a><span class="fc-sep"> · </span><a class="fc-tel" href="tel:+919786564820">+91 97865 64820</a></p>
+      <p class="footer-meta f-rev" style="--d:.28s">Consumer Intelligence · GTM · Product · Brand · D2C · Commerce · Growth</p>
     </div>
   </div>
 </footer>
@@ -899,9 +1083,22 @@ let vh = 1, maxScroll = 1;
 const camA = new THREE.Vector3(), camB = new THREE.Vector3(), tgtA = new THREE.Vector3(), tgtB = new THREE.Vector3(), camTarget = new THREE.Vector3(), rigBase = new THREE.Vector3();
 let bloomKF = [], rigKF = [], viewKF = [];
 
+// Stack cards have a fixed height; if a card's content is taller, step its type down (.tight, then .tighter).
+// Uses layout offsets (not getBoundingClientRect), so the cards' scroll transforms don't affect the measure.
+function fitCards() {
+  document.querySelectorAll('.svc-card').forEach((card) => {
+    card.classList.remove('tight', 'tighter');
+    const overflows = () => {
+      const lastEl = card.lastElementChild, pb = parseFloat(getComputedStyle(card).paddingBottom) || 0;
+      return lastEl.offsetTop + lastEl.offsetHeight > card.clientHeight - pb + 1;
+    };
+    if (overflows()) { card.classList.add('tight'); if (overflows()) card.classList.add('tighter'); }
+  });
+}
+
 function layout() {
   isMobile = window.innerWidth < 768;
-  const tablet = !isMobile && window.innerWidth <= 1024;
+  const tablet = !isMobile && window.innerWidth <= 900;
   vh = window.innerHeight;
   if (renderer) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowDetail ? 1.5 : 2));
@@ -910,7 +1107,7 @@ function layout() {
   camera.aspect = window.innerWidth / vh; camera.updateProjectionMatrix();
   if (isMobile) {
     rigBase.set(0, -2.3 + 2.6 * 0.72, 0); rig.userData.base = 0.72;
-    camA.set(0.2, 0.2, 10.6); camB.set(0.1, 0.35, 9.2); tgtA.set(0.3, -1.4, 0); tgtB.set(0, -1.1, 0);
+    camA.set(0.2, 0.2, 10.6); camB.set(0.1, 0.35, 9.2); tgtA.set(0.3, -0.45, 0); tgtB.set(0, -1.1, 0);
   } else if (tablet) {
     rigBase.set(1.1, -2.8 + 2.6 * 0.9, 0); rig.userData.base = 0.9;
     camA.set(0.4, 0.1, 9.8); camB.set(0.5, 0.3, 8.2); tgtA.set(0.5, -0.6, 0); tgtB.set(0.3, -0.2, 0);
@@ -918,6 +1115,7 @@ function layout() {
     rigBase.set(1.5, -2.95 + 2.6, 0); rig.userData.base = 1;
     camA.set(0.9, -0.9, 8.8); camB.set(0.5, 0.3, 7.2); tgtA.set(1.2, -1.55, 0); tgtB.set(0.4, -0.42, 0);
   }
+  fitCards();
   for (const k of Object.keys(secs)) S[k] = { top: pageY(secs[k]), len: Math.max(1, secs[k].offsetHeight - vh) };
   maxScroll = document.documentElement.scrollHeight - vh;
   const at = (k, f) => S[k].top + S[k].len * f;
@@ -1017,9 +1215,9 @@ const heroCopy = $('heroCopy'), scrollCue = $('scrollCue'), bloomLabel = $('bloo
 const heroFx = [...secs.hero.querySelectorAll('.deco [data-fx]')].map((el) => ({ el, k: el.classList.contains('fg-dot') ? 0.8 : el.classList.contains('curve') ? 0.1 : 0.2 }));
 const wwdWords = [...secs.wwd.querySelectorAll('.big-words span')];
 const wwdText = [...secs.wwd.querySelectorAll('.wwd-text [data-fx]')];
-const howTitle = secs.how.querySelector('h2'), way1 = $('way1'), way2 = $('way2');
-const svcCards = [...secs.svc.querySelectorAll('.svc-card')].map((el) => ({ el, speed: parseFloat(el.dataset.speed) }));
-const svcNum = $('svcNum'), svcCount = $('svcCount');
+const stackCards = (sec) => [...sec.querySelectorAll('.svc-card')].map((el) => ({ el, speed: parseFloat(el.dataset.speed) }));
+const howCards = stackCards(secs.how), howNum = $('howNum'), howCount = $('howCount');
+const svcCards = stackCards(secs.svc), svcNum = $('svcNum'), svcCount = $('svcCount');
 const rows = [...secs.diff.querySelectorAll('.t-row')];
 const buildLines = [...secs.build.querySelectorAll('h2 span')];
 const buildCopy = secs.build.querySelector('.build-foot .copy'), cta = $('cta');
@@ -1038,6 +1236,25 @@ function set(el, prop, val, id) {
 }
 const prog = (k, y) => clamp01((y - S[k].top) / S[k].len);
 const tf = (x, y, s = 1, r = 0) => `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${s.toFixed(4)}) rotate(${r.toFixed(2)}deg)`;
+
+function runStack(k, sp, cards, numEl, countEl) {
+  const active = clamp01((sp - 0.04) / 0.9) * (cards.length - 1);
+  cards.forEach((c, i) => {
+    const d = active - i;
+    let tx = 0, ty = 0, s = 1, r = 0, o = 1, z = 1;
+    if (d < -1) { ty = vh * 0.9; o = 0; }
+    else if (d < 0) { const e = easeOutCubic(1 + d); ty = (1 - e) * vh * 0.85; r = (1 - e) * 5; o = smoothstep(0, 0.4, e); }
+    else { const kk = Math.min(d, 3); ty = -kk * (isMobile ? 5 : 22); s = 1 - kk * 0.05; z = 1 - kk * 0.12; }
+    ty += (0.5 - sp) * c.speed * (isMobile ? 0 : 40);       // per-card depth (off on phones: keeps the stack clear of the heading)
+    set(c.el, 'transform', tf(tx, ty, s, r), k + 'c' + i);
+    set(c.el, 'opacity', o.toFixed(3), k + 'o' + i);
+    set(c.el, 'filter', d > 0.5 ? `brightness(${z.toFixed(3)})` : 'none', k + 'f' + i);
+    set(c.el, 'zIndex', String(i + 1), k + 'z' + i);
+  });
+  const num = String(Math.min(cards.length, Math.round(active) + 1)).padStart(2, '0');
+  if (last[k + 'num'] !== num) { numEl.textContent = num; last[k + 'num'] = num; }
+  set(countEl, '--svc', ((active + 1) / cards.length).toFixed(3), k + 'p');
+}
 
 function updateDom(y, bloom) {
   // background world
@@ -1066,7 +1283,7 @@ function updateDom(y, bloom) {
   const w = prog('wwd', y);
   wwdWords.forEach((el, i) => {
     const e = easeOutCubic(smoothstep(0.06 + i * 0.14, 0.22 + i * 0.14, w));
-    const drift = -(w - 0.5) * vh * (0.06 + i * 0.05);
+    const drift = -(w - 0.5) * vh * (0.06 + i * 0.05) * (isMobile ? 0.25 : 1);   // gentler on phones so the words never collide
     set(el, 'transform', tf(0, (1 - e) * 90 + drift), 'ww' + i);
     set(el, 'opacity', e.toFixed(3), 'wo' + i);
   });
@@ -1076,33 +1293,9 @@ function updateDom(y, bloom) {
     set(el, 'opacity', e.toFixed(3), 'wto' + i);
   });
 
-  // 03 how we work: cards converge from ±120px, then drift at different speeds
-  const hw = clamp01((y - (S.how.top - vh * 0.6)) / (S.how.len + vh * 0.6));
-  const ht = easeOutCubic(smoothstep(0.05, 0.3, hw));
-  set(howTitle, 'letterSpacing', `${lerp(0.02, -0.045, ht).toFixed(3)}em`, 'hts');
-  set(howTitle, 'opacity', ht.toFixed(3), 'hto');
-  const e1 = easeOutCubic(smoothstep(0.18, 0.5, hw)), e2 = easeOutCubic(smoothstep(0.24, 0.56, hw));
-  set(way1, 'transform', tf(-120 * (1 - e1), -hw * 40), 'w1'); set(way1, 'opacity', e1.toFixed(3), 'w1o');
-  set(way2, 'transform', tf(120 * (1 - e2), -hw * 90 + 40), 'w2'); set(way2, 'opacity', e2.toFixed(3), 'w2o');
-
-  // 04 services: a stack — each card rises in, earlier cards settle back into depth
-  const sp = prog('svc', y);
-  const active = clamp01((sp - 0.04) / 0.9) * (svcCards.length - 1);
-  svcCards.forEach((c, i) => {
-    const d = active - i;
-    let tx = 0, ty = 0, s = 1, r = 0, o = 1, z = 1;
-    if (d < -1) { ty = vh * 0.9; o = 0; }
-    else if (d < 0) { const e = easeOutCubic(1 + d); ty = (1 - e) * vh * 0.85; r = (1 - e) * 5; o = smoothstep(0, 0.4, e); }
-    else { const k = Math.min(d, 3); ty = -k * 22; s = 1 - k * 0.05; z = 1 - k * 0.12; }
-    ty += (0.5 - sp) * c.speed * 40;                       // per-card depth
-    set(c.el, 'transform', tf(tx, ty, s, r), 'sc' + i);
-    set(c.el, 'opacity', o.toFixed(3), 'so' + i);
-    set(c.el, 'filter', d > 0.5 ? `brightness(${z.toFixed(3)})` : 'none', 'sf' + i);
-    set(c.el, 'zIndex', String(i + 1), 'sz' + i);
-  });
-  const num = String(Math.min(svcCards.length, Math.round(active) + 1)).padStart(2, '0');
-  if (last.num !== num) { svcNum.textContent = num; last.num = num; }
-  set(svcCount, '--svc', ((active + 1) / svcCards.length).toFixed(3), 'svcp');
+  // 03 how we work + 04 services: stacks — each card rises in, earlier cards settle back into depth
+  runStack('how', prog('how', y), howCards, howNum, howCount);
+  runStack('svc', prog('svc', y), svcCards, svcNum, svcCount);
 
   // 05 difference: rows reveal one by one; the new model gains emphasis
   const dp = prog('diff', y);
@@ -1134,6 +1327,59 @@ function updateDom(y, bloom) {
 /* =====================================================================
    Single loop: scroll → story → DOM + WebGL
    ===================================================================== */
+/* =====================================================================
+   Butterfly: rests on the stem just under the bloom, slowly opening and
+   closing its wings. Scrolling startles it: it takes off and flutters
+   around the flower (wider the faster you scroll), then glides back and
+   settles about a second after the scrolling stops. Spring physics give
+   the loose, slightly overshooting motion of real flight.
+   ===================================================================== */
+const bfEl = $('bfly'), bfWing = bfEl.querySelector('.bfly-wing');
+const bf = { x: 0, y: 0, vx: 0, vy: 0, frame: 0, flyUntil: 0, lastY: 0, lastT: 0, vel: 0, init: false, shown: false, w: 84, lastF: -1, tilt: 0 };
+const perchW = new THREE.Vector3();
+const bfMeasure = () => { bf.w = bfWing.offsetWidth || bf.w; };
+bfMeasure(); window.addEventListener('resize', bfMeasure);
+function hideButterfly() { if (bf.shown) { bfEl.style.opacity = '0'; bf.shown = false; } }
+function updateButterfly(t, y, op) {
+  const dt = Math.min(0.05, Math.max(0.001, t - bf.lastT)); bf.lastT = t;
+  const dy = Math.abs(y - bf.lastY); bf.lastY = y;
+  bf.vel += (dy - bf.vel) * 0.2;
+  if (!reduceMotion && bf.vel > 1.5) bf.flyUntil = t + 1.2;
+  const flying = t < bf.flyUntil;
+
+  // perch: a point on the stem just below the flower head, projected to the screen
+  perchW.copy(stemCurve.getPoint(0.9)); flower.localToWorld(perchW); perchW.project(camera);
+  const px = (perchW.x * 0.5 + 0.5) * window.innerWidth, py = (-perchW.y * 0.5 + 0.5) * window.innerHeight;
+  if (!bf.init) { bf.x = px; bf.y = py; bf.init = true; }
+
+  let tx = px, ty = py;
+  if (flying) {   // wander around (mostly above) the flower: layered sines read as erratic, organic flight
+    const R = (isMobile ? 90 : 170) * (0.55 + Math.min(1, bf.vel / 25) * 0.6);
+    tx += Math.sin(t * 0.83) * R + Math.sin(t * 2.17 + 1.3) * R * 0.32;
+    ty += -R * 0.6 + Math.cos(t * 0.67) * R * 0.5 + Math.sin(t * 1.93 + 0.4) * R * 0.28;
+  }
+  const k = flying ? 9 : 16, damp = flying ? 3.4 : 7;   // loose spring in flight, firmer when landing
+  bf.vx += ((tx - bf.x) * k - bf.vx * damp) * dt;
+  bf.vy += ((ty - bf.y) * k - bf.vy * damp) * dt;
+  bf.x += bf.vx * dt; bf.y += bf.vy * dt;
+  const speed = Math.hypot(bf.vx, bf.vy);
+
+  // wings: the sprite holds a turning sequence, so only one consistent 3/4 view is used as a flap —
+  // frames 22 (open) ↔ 44 (closed), eased back and forth. Fast beats in flight, a slow lazy fan at rest.
+  const airborne = flying || speed > 45;
+  bf.phase = (bf.phase || 0) + dt * (airborne ? 5.5 : 0.35);
+  const beat = 0.5 - 0.5 * Math.cos(bf.phase * Math.PI * 2);            // 0 → 1 → 0, slow at the turns like a real wing
+  const f = airborne ? Math.round(22 + 22 * beat) : Math.round(36 + 8 * beat);
+  if (f !== bf.lastF) { bfWing.style.backgroundPositionX = `${-f * bf.w}px`; bf.lastF = f; }
+
+  // face the direction of travel (the sprite faces right), turning only on a clear change of direction
+  if (bf.vx > 30) bf.face = 1; else if (bf.vx < -30) bf.face = -1; else if (!bf.face) bf.face = 1;
+  bf.tilt += ((airborne ? Math.max(-22, Math.min(22, bf.vy * 0.04)) * bf.face : -6) - bf.tilt) * 0.12;
+  const s = Math.max(0.75, Math.min(1.25, rig.scale.x));
+  bfEl.style.transform = `translate3d(${bf.x.toFixed(1)}px, ${bf.y.toFixed(1)}px, 0) rotate(${bf.tilt.toFixed(1)}deg) scale(${(s * bf.face).toFixed(3)}, ${s.toFixed(3)})`;
+  bfEl.style.opacity = Math.min(1, op * 1.15).toFixed(3); bf.shown = true;
+}
+
 const clock = new THREE.Clock();
 let shownOp = -1, shownBlur = -1, displayY = 0;
 const rigRot = { x: 0, y: 0 };
@@ -1159,10 +1405,12 @@ function frame() {
 
   if (!webglOK) return;
   const r = reduceMotion ? { x: 0, y: 0, z: 0, s: 1, rz: 0, op: 1, blur: 0 } : sampleRig(displayY);
-  const op = r.op, blur = isMobile ? 0 : Math.round(r.blur * 2) / 2;
+  // phones: the flower sits behind the text in the middle chapters, so dim it there (hero and finale stay full)
+  const mid = isMobile ? smoothstep(S.hero.top + S.hero.len * 0.85, S.wwd.top, displayY) * (1 - smoothstep(S.build.top - vh * 0.7, S.build.top, displayY)) : 0;
+  const op = r.op * (1 - 0.6 * mid), blur = isMobile ? 0 : Math.round(r.blur * 2) / 2;
   if (Math.abs(op - shownOp) > 0.003) { canvas.style.opacity = op.toFixed(3); shownOp = op; }
   if (blur !== shownBlur) { canvas.style.filter = blur ? `blur(${blur}px)` : 'none'; shownBlur = blur; }
-  if (op < 0.003) return;
+  if (op < 0.003) { hideButterfly(); return; }
 
   mouse.sx += ((mouse.active ? mouse.x : 0) - mouse.sx) * 0.05;
   mouse.sy += ((mouse.active ? mouse.y : 0) - mouse.sy) * 0.05;
@@ -1203,6 +1451,7 @@ function frame() {
   }
   pollenGeo.attributes.position.needsUpdate = true;
   pollenMat.opacity = 0.9 * smoothstep(0.75, 1, bloom);
+  updateButterfly(t, y, op);
   renderer.render(scene, camera);
 }
 
@@ -1217,7 +1466,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     e.preventDefault();
     setMenu(false);
     const k = Object.keys(secs).find((key) => secs[key] === el);
-    const y = id === 'top' ? 0 : k === 'build' ? S.build.top + S.build.len * 0.6 : k === 'wwd' || k === 'how' || k === 'diff' ? S[k].top + S[k].len * 0.7 : pageY(el);
+    const y = id === 'top' ? 0 : k === 'build' ? S.build.top + S.build.len * 0.6 : k === 'wwd' || k === 'diff' ? S[k].top + S[k].len * 0.7 : pageY(el);
     scrollToY(y);
   });
 });
