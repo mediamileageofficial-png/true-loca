@@ -321,6 +321,12 @@
   .footer-links a:hover::after { transform: scaleX(0); transform-origin: right; }
   .footer-copy { margin: 0; font-size: 0.95rem; font-weight: 600; color: rgba(246,244,240,0.9); }
   .footer-copy a:hover { color: var(--yellow); }
+  .footer-presence { width: 100%; display: grid; gap: 0.45rem; justify-items: center; text-align: center; padding-top: clamp(1.6rem, 4vh, 2.4rem); border-top: 1px solid rgba(246,244,240,0.2); }
+  .footer-presence p { margin: 0; }
+  .fp-title { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); }
+  .fp-cities { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: clamp(1.05rem, 1.5vw, 1.3rem); text-transform: uppercase; }
+  .fp-cities span { color: var(--yellow); font-weight: 400; margin: 0 0.3em; }
+  .fp-note { max-width: 46rem; font-size: 0.95rem; color: rgba(246,244,240,0.8); }
   .footer-meta { margin: 0; font-family: "JetBrains Mono", monospace; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(246,244,240,0.6); }
   /* scroll-in reveal */
   .f-rev { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
@@ -793,6 +799,11 @@ fbq('track', 'PageView');
       <nav class="footer-links f-rev" style="--d:.08s" aria-label="Footer"><a href="#what-we-do">What We Do</a><a href="#services">Services</a><a href="#lets-build">Let's Build</a></nav>
       <p class="footer-copy f-rev" style="--d:.18s">© 2026 LOCA BRANDS · <a href="mailto:Pranav@locabrands.com">Pranav@locabrands.com</a><span class="fc-sep"> · </span><a class="fc-tel" href="tel:+919786564820">+91 97865 64820</a></p>
       <p class="footer-meta f-rev" style="--d:.28s">Consumer Intelligence · GTM · Product · Brand · D2C · Commerce · Growth</p>
+    </div>
+    <div class="footer-presence f-rev" style="--d:.34s">
+      <p class="fp-title">Our Presence</p>
+      <p class="fp-cities">Chennai <span>|</span> Bengaluru <span>|</span> Salem</p>
+      <p class="fp-note">A distributed team and specialist network, enabling us to work closely with consumer businesses across markets.</p>
     </div>
   </div>
 </footer>
